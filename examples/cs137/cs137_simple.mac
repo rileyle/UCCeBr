@@ -1,0 +1,16 @@
+# Geometry =====================================================================
+/Source/Simple 662 keV
+/Source/Capsule/Construct
+/CeBr3/setZ 20 cm
+/CeBr3/rotateX 90 deg
+
+/process/em/auger true
+
+/process/had/deex/setIC true
+
+
+# Initialize run manager =======================================================
+/run/initialize
+
+/Output/Filename cs137_simple.out
+/run/beamOn 1000000

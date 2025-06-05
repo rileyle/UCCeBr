@@ -1,0 +1,16 @@
+/Source/Capsule/Construct
+/CeBr3/setZ 20 cm
+/CeBr3/rotateX 90 deg
+
+# Initialize run manager =======================================================
+/run/initialize
+
+#/vis/open RayTracer        # Makes a jpeg image
+#/vis/open OGLIX
+#/vis/open VRML1FILE         # To view, use    $ SceneViewer file.wrl
+/vis/open VRML2FILE         # To view, use    $ view3dscene file.wrl
+
+/vis/scene/create
+/vis/drawVolume
+/vis/viewer/set/viewpointThetaPhi 20 150 deg
+/vis/viewer/flush
