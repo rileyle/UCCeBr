@@ -1,4 +1,4 @@
-# UCNaI
+# UCCeBr3
 
 ## Compile and install
 
@@ -7,43 +7,39 @@ Install version [4.10.07.p01 of the Geant4 libraries](https://geant4.web.cern.ch
 Set up your environment (consider adding this to your `.bashrc`):
 
     $ source <Path to Geant4>/bin/geant4.sh
-    $ source <Path to Geant4>/share/Geant4-10.6.3/geant4make/geant4make.sh
+    $ source <Path to Geant4>/share/Geant4-10.7.4/geant4make/geant4make.sh
 
 Compile:
 
     $ make
 
-## Examples
+## Example
 
- (Run the examples by typing `make` at the command line in the corresponding directory.)
+ (Run the example by typing `make` at the command line in the corresponding directory.)
 
 ### `./examples/cs137`
 
-This is a simple example collecting a spectrum with a single NaI detector from a <sup>137</sup>Cs source. A sorting code `NaISort.py` is included which produces a histogram in the `.mca` format (requires python3 and the numpy module). A `Makefile` is included.
-
-### `./examples/na22`
-
-This example simulates two NaI detectors collecting spectra from a <sup>22</sup>Na source centered between them, and off center. The `coincSort.py` sorts a coincidence matrix and the spectrum of detector 2 gated on an energy range in spectrum 1. The gate range is set in the file `coincSort.inp` and is set to 0-2000 keV by default. (Gating in the range 1225 - 1325 keV shows coincidences with the 1274 keV transition in the <sup>22</sup>Ne daughter and the 511 keV gamma rays from the e<sup>+</sup> - e<sup>-</sup> annihilation.)
+This is a simple example collecting a spectrum with a single CeBr detector from a <sup>137</sup>Cs source. Two macro files are included. cs137.mac uses the radioactive decay class to simulate the decay of 137Cs. cs137_simple.mac emits 662 keV gamma rays directly. A sorting code `CeBr3Sort.py` is included which produces a histogram in the `.root` file. A `Makefile` is included.
 
 ## Macro File Commands
 
-### NaI Detector Placement
+### CeBr3 Detector Placement
 
-    /NaI/setX <double> <unit>
-    /NaI/setY <double> <unit>
-    /NaI/setZ <double> <unit>
+    /CeBr3/setX <double> <unit>
+    /CeBr3/setY <double> <unit>
+    /CeBr3/setZ <double> <unit>
 
 > Set the position of the detector.
 
-    /NaI/rotateX <double> <unit>
-    /NaI/rotateY <double> <unit>
-    /NaI/rotateZ <double> <unit>
+    /CeBr3/rotateX <double> <unit>
+    /CeBr3/rotateY <double> <unit>
+    /CeBr3/rotateZ <double> <unit>
 
 > Orient the detector by rotating about X, Y, Z.
 
-    /NaI/GeometryFile <filename>
+    /CeBr3/GeometryFile <filename>
 
-> Set the name of the optional geometry file. If this command is present, a NaI detector is placed for each line in the specified file. Each line has the format:
+> Set the name of the optional geometry file. If this command is present, a CeBr3 detector is placed for each line in the specified file. Each line has the format:
 
         <X (mm)>  <Y (mm)>  <Z (mm)>  <X rotation (deg)>  <Y rotation (deg)>  <Z rotation (deg)>
 
@@ -51,7 +47,7 @@ This example simulates two NaI detectors collecting spectra from a <sup>22</sup>
 
 ### Source
 
-Realistic simulations of radioactive sources can be run as illustrated by `./examples/cs137/cs137.mac`. The Simple source is a computationally more efficient alternative.
+Realistic simulations of radioactive sources can be run as illustrated by `./examples/cs137/cs137.mac`. The Simple source is a computationally more efficient alternative that does not rely on the accuracy of the G4RadioactiveDecay class.
 
     /Source/Simple <double> <unit>
 
@@ -123,7 +119,7 @@ Optionally, cylindrical aluminum targets can be included in simulations.
     /Target/rotateY <double> <unit>
     /Target/rotateZ <double> <unit>
 
-> Orient the target  by rotating about X, Y, Z. (The order of these commands matters.)
+> Orient the target by rotating about X, Y, Z. (The order of these commands matters.)
 
     /Target/GeometryFile <filename>
 
@@ -153,7 +149,7 @@ Output is written to a text file. Each line represents a detected event and has 
 
 Run the macro file `vis/vis.mac` an interactive session:
 
-    $ UCNaI
+    $ UCCeBr3
     
     Idle> /control/execute vis/vis.mac
     Idle> exit
