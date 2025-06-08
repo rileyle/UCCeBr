@@ -39,7 +39,7 @@ CeBr3_2x2_Detector::CeBr3_2x2_Detector(G4LogicalVolume* experimentalHall_log,
   reflectorShift.setX(0);
   reflectorShift.setY(0);
   reflectorShift.setZ(2*canThickness - reflectorFrontThickness);
-  crystalPos = DetPos + reflectorShift;
+  reflectorPos = DetPos + reflectorShift;
 
   pmtLength        = 261*mm - 104*mm;
   shieldThickness  = 0.64*mm;
