@@ -1,0 +1,8 @@
+*~
+*.out
+*.log
+*.root
+*.wrl
+tmp*
+*.dat
+.vscode

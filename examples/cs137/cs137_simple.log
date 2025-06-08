@@ -1,423 +1,0 @@
-
-**************************************************************
- Geant4 version Name: geant4-10-07-patch-04    (9-September-2022)
-                       Copyright : Geant4 Collaboration
-                      References : NIM A 506 (2003), 250-303
-                                 : IEEE-TNS 53 (2006), 270-278
-                                 : NIM A 835 (2016), 186-225
-                             WWW : http://geant4.org/
-**************************************************************
-
-
-Opened output file: cs137_simple.out
-
-### ===  Deexcitation model UAtomDeexcitation is activated for 1 region:
-          DefaultRegionForTheWorld  1  1  0
-### ===  Auger cascade flag: 1
-### ===  Ignore cuts flag:   0
-
-phot:  for gamma SubType=12 BuildTable=0
-      LambdaPrime table from 200 keV to 100 TeV in 61 bins 
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
- LivermorePhElectric : Emin=    0 eV  Emax=  100 TeV  SauterGavrila Fluo
-
-compt:  for gamma SubType=13 BuildTable=1
-      Lambda table from 100 eV  to 1 MeV, 7 bins/decade, spline: 1
-      LambdaPrime table from 1 MeV to 100 TeV in 56 bins 
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-       Klein-Nishina : Emin=    0 eV  Emax=  100 TeV
-
-conv:  for gamma SubType=14 BuildTable=1
-      Lambda table from 1.022 MeV to 100 TeV, 18 bins/decade, spline: 1
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-     BetheHeitlerLPM : Emin=    0 eV  Emax=  100 TeV  ModifiedTsai
-
-Rayl:  for gamma SubType=11 BuildTable=1
-      Lambda table from 100 eV  to 100 keV, 7 bins/decade, spline: 0
-      LambdaPrime table from 100 keV to 100 TeV in 63 bins 
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-   LivermoreRayleigh : Emin=    0 eV  Emax=  100 TeV  CullenGenerator
-
-msc:  for e-  SubType= 10
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-            UrbanMsc : Emin=    0 eV  Emax=  100 MeV Nbins=42 100 eV  - 100 MeV
-              StepLim=UseSafety Rfact=0.04 Gfact=2.5 Sfact=0.6 DispFlag:1 Skin=1 Llimit=1
-        WentzelVIUni : Emin=  100 MeV Emax=  100 TeV Nbins=42 100 MeV - 100 TeV
-              StepLim=UseSafety Rfact=0.04 Gfact=2.5 Sfact=0.6 DispFlag:1 Skin=1 Llimit=1
-
-eIoni:  for e-  SubType=2
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      StepFunction=(0.2, 1 mm), integ: 1, fluct: 1, linLossLim= 0.01
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-        MollerBhabha : Emin=    0 eV  Emax=  100 TeV
-
-eBrem:  for e-  SubType=3
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      LPM flag: 1 for E > 1 GeV,  VertexHighEnergyTh(GeV)= 100000
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-             eBremSB : Emin=    0 eV  Emax=    1 GeV  ModifiedTsai
-            eBremLPM : Emin=    1 GeV Emax=  100 TeV  ModifiedTsai
-
-CoulombScat:  for e-, integral:1  SubType=1 BuildTable=1
-      Lambda table from 100 MeV to 100 TeV, 7 bins/decade, spline: 1
-      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-  eCoulombScattering : Emin=  100 MeV Emax=  100 TeV
-
-msc:  for e+  SubType= 10
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-            UrbanMsc : Emin=    0 eV  Emax=  100 MeV Nbins=42 100 eV  - 100 MeV
-              StepLim=UseSafety Rfact=0.04 Gfact=2.5 Sfact=0.6 DispFlag:1 Skin=1 Llimit=1
-        WentzelVIUni : Emin=  100 MeV Emax=  100 TeV Nbins=42 100 MeV - 100 TeV
-              StepLim=UseSafety Rfact=0.04 Gfact=2.5 Sfact=0.6 DispFlag:1 Skin=1 Llimit=1
-
-eIoni:  for e+  SubType=2
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      StepFunction=(0.2, 1 mm), integ: 1, fluct: 1, linLossLim= 0.01
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-        MollerBhabha : Emin=    0 eV  Emax=  100 TeV
-
-eBrem:  for e+  SubType=3
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      LPM flag: 1 for E > 1 GeV,  VertexHighEnergyTh(GeV)= 100000
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-             eBremSB : Emin=    0 eV  Emax=    1 GeV  ModifiedTsai
-            eBremLPM : Emin=    1 GeV Emax=  100 TeV  ModifiedTsai
-
-annihil:  for e+, integral:1  SubType=5 BuildTable=0
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-            eplus2gg : Emin=    0 eV  Emax=  100 TeV
-
-CoulombScat:  for e+, integral:1  SubType=1 BuildTable=1
-      Lambda table from 100 MeV to 100 TeV, 7 bins/decade, spline: 1
-      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-  eCoulombScattering : Emin=  100 MeV Emax=  100 TeV
-
-msc:  for proton  SubType= 10
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
-              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
-
-hIoni:  for proton  SubType=2
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-               Bragg : Emin=    0 eV  Emax=    2 MeV
-          BetheBloch : Emin=    2 MeV Emax=  100 TeV
-      ===== Limit on energy threshold has been applied 
-
-hBrems:  for proton  SubType=3
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
-      ===== Limit on energy threshold has been applied 
-
-hPairProd:  for proton  SubType=4
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      Sampling table 17x1001; from 7.50618 GeV to 100 TeV 
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
-
-CoulombScat:  for proton, integral:1  SubType=1 BuildTable=1
-      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
-      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
-
-msc:  for GenericIon  SubType= 10
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-            UrbanMsc : Emin=    0 eV  Emax=  100 TeV
-              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
-
-ionIoni:  for GenericIon  SubType=2
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.02
-      Stopping Power data for 17 ion/material pairs
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-            BraggIon : Emin=    0 eV  Emax=    2 MeV
-          BetheBloch : Emin=    2 MeV Emax=  100 TeV
-      ===== Limit on energy threshold has been applied 
-======================================================================
-======          Radioactive Decay Physics Parameters           =======
-======================================================================
-Max life time                                     0.14427 ps
-Internal e- conversion flag                       1
-Stored internal conversion coefficients           1
-Enable correlated gamma emission                  0
-Max 2J for sampling of angular correlations       10
-Atomic de-excitation enabled                      1
-Auger electron emission enabled                   1
-Auger cascade enabled                             1
-Check EM cuts disabled for atomic de-excitation   0
-Use Bearden atomic level energies                 0
-======================================================================
-
-msc:  for alpha  SubType= 10
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-            UrbanMsc : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
-              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
-
-ionIoni:  for alpha  SubType=2
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.02
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-            BraggIon : Emin=    0 eV  Emax=7.9452 MeV
-          BetheBloch : Emin=7.9452 MeV Emax=  100 TeV
-      ===== Limit on energy threshold has been applied 
-
-msc:  for anti_proton  SubType= 10
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
-              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
-
-hIoni:  for anti_proton  SubType=2
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-            ICRU73QO : Emin=    0 eV  Emax=    2 MeV
-          BetheBloch : Emin=    2 MeV Emax=  100 TeV
-      ===== Limit on energy threshold has been applied 
-
-hBrems:  for anti_proton  SubType=3
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
-      ===== Limit on energy threshold has been applied 
-
-hPairProd:  for anti_proton  SubType=4
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      Sampling table 17x1001; from 7.50618 GeV to 100 TeV 
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
-
-CoulombScat:  for anti_proton, integral:1  SubType=1 BuildTable=1
-      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
-      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
-
-msc:  for kaon+  SubType= 10
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
-              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
-
-hIoni:  for kaon+  SubType=2
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-               Bragg : Emin=    0 eV  Emax=1.05231 MeV
-          BetheBloch : Emin=1.05231 MeV Emax=  100 TeV
-      ===== Limit on energy threshold has been applied 
-
-hBrems:  for kaon+  SubType=3
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
-      ===== Limit on energy threshold has been applied 
-
-hPairProd:  for kaon+  SubType=4
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      Sampling table 18x1001; from 3.94942 GeV to 100 TeV 
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
-
-CoulombScat:  for kaon+, integral:1  SubType=1 BuildTable=1
-      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
-      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
-
-msc:  for kaon-  SubType= 10
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
-              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
-
-hIoni:  for kaon-  SubType=2
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-            ICRU73QO : Emin=    0 eV  Emax=1.05231 MeV
-          BetheBloch : Emin=1.05231 MeV Emax=  100 TeV
-      ===== Limit on energy threshold has been applied 
-
-hBrems:  for kaon-  SubType=3
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
-      ===== Limit on energy threshold has been applied 
-
-hPairProd:  for kaon-  SubType=4
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      Sampling table 18x1001; from 3.94942 GeV to 100 TeV 
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
-
-CoulombScat:  for kaon-, integral:1  SubType=1 BuildTable=1
-      Used Lambda table of kaon+
-      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
-
-msc:  for mu+  SubType= 10
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
-              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
-
-muIoni:  for mu+  SubType=2
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-               Bragg : Emin=    0 eV  Emax=  200 keV
-          BetheBloch : Emin=  200 keV Emax=    1 GeV
-        MuBetheBloch : Emin=    1 GeV Emax=  100 TeV
-      ===== Limit on energy threshold has been applied 
-
-muBrems:  for mu+  SubType=3
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-              MuBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
-      ===== Limit on energy threshold has been applied 
-
-muPairProd:  for mu+  SubType=4
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      Sampling table 21x1001; from 1 GeV to 100 TeV 
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-          muPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
-
-CoulombScat:  for mu+, integral:1  SubType=1 BuildTable=1
-      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
-      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
-
-msc:  for mu-  SubType= 10
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
-              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
-
-muIoni:  for mu-  SubType=2
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-            ICRU73QO : Emin=    0 eV  Emax=  200 keV
-          BetheBloch : Emin=  200 keV Emax=    1 GeV
-        MuBetheBloch : Emin=    1 GeV Emax=  100 TeV
-      ===== Limit on energy threshold has been applied 
-
-muBrems:  for mu-  SubType=3
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-              MuBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
-      ===== Limit on energy threshold has been applied 
-
-muPairProd:  for mu-  SubType=4
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      Sampling table 21x1001; from 1 GeV to 100 TeV 
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-          muPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
-
-CoulombScat:  for mu-, integral:1  SubType=1 BuildTable=1
-      Used Lambda table of mu+
-      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
-
-msc:  for pi+  SubType= 10
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
-              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
-
-hIoni:  for pi+  SubType=2
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-               Bragg : Emin=    0 eV  Emax=297.505 keV
-          BetheBloch : Emin=297.505 keV Emax=  100 TeV
-      ===== Limit on energy threshold has been applied 
-
-hBrems:  for pi+  SubType=3
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
-      ===== Limit on energy threshold has been applied 
-
-hPairProd:  for pi+  SubType=4
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      Sampling table 20x1001; from 1.11656 GeV to 100 TeV 
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
-
-CoulombScat:  for pi+, integral:1  SubType=1 BuildTable=1
-      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
-      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
-
-msc:  for pi-  SubType= 10
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
-              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
-
-hIoni:  for pi-  SubType=2
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-            ICRU73QO : Emin=    0 eV  Emax=297.505 keV
-          BetheBloch : Emin=297.505 keV Emax=  100 TeV
-      ===== Limit on energy threshold has been applied 
-
-hBrems:  for pi-  SubType=3
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
-      ===== Limit on energy threshold has been applied 
-
-hPairProd:  for pi-  SubType=4
-      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
-      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
-      Sampling table 20x1001; from 1.11656 GeV to 100 TeV 
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
-
-CoulombScat:  for pi-, integral:1  SubType=1 BuildTable=1
-      Used Lambda table of pi+
-      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
-      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
-  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
- Begining of run 
- Simulating 1000000 events.
-
-Opened output file: cs137_simple.out
-  0 %   3579 events/s  4:39 remaining         0 %   137092 events/s  7 remaining         0 %   191142 events/s  5 remaining         0 %   220273 events/s  5 remaining         0 %   238093 events/s  4 remaining         1 %   246563 events/s  4 remaining         1 %   253183 events/s  4 remaining         1 %   261036 events/s  4 remaining         1 %   266527 events/s  4 remaining         1 %   271800 events/s  4 remaining         1 %   274423 events/s  4 remaining         1 %   275500 events/s  4 remaining         1 %   276843 events/s  4 remaining         1 %   279746 events/s  4 remaining         2 %   280440 events/s  4 remaining         2 %   282314 events/s  3 remaining         2 %   282139 events/s  3 remaining         2 %   284333 events/s  3 remaining         2 %   286008 events/s  3 remaining         2 %   287123 events/s  3 remaining         2 %   288943 events/s  3 remaining         2 %   288930 events/s  3 remaining         2 %   289622 events/s  3 remaining         2 %   290024 events/s  3 remaining         2 %   290273 events/s  3 remaining         3 %   291829 events/s  3 remaining         3 %   291759 events/s  3 remaining         3 %   292629 events/s  3 remaining         3 %   293420 events/s  3 remaining         3 %   294037 events/s  3 remaining         3 %   294964 events/s  3 remaining         3 %   294069 events/s  3 remaining         3 %   294398 events/s  3 remaining         3 %   294835 events/s  3 remaining         4 %   295628 events/s  3 remaining         4 %   296193 events/s  3 remaining         4 %   295905 events/s  3 remaining         4 %   296307 events/s  3 remaining         4 %   296678 events/s  3 remaining         4 %   297384 events/s  3 remaining         4 %   297737 events/s  3 remaining         4 %   297354 events/s  3 remaining         4 %   297940 events/s  3 remaining         4 %   298557 events/s  3 remaining         4 %   299219 events/s  3 remaining         5 %   299526 events/s  3 remaining         5 %   299255 events/s  3 remaining         5 %   299226 events/s  3 remaining         5 %   299585 events/s  3 remaining         5 %   299886 events/s  3 remaining         5 %   300138 events/s  3 remaining         5 %   299958 events/s  3 remaining         5 %   299891 events/s  3 remaining         5 %   300364 events/s  3 remaining         6 %   300621 events/s  3 remaining         6 %   300954 events/s  3 remaining         6 %   300905 events/s  3 remaining         6 %   300513 events/s  3 remaining         6 %   299992 events/s  3 remaining         6 %   300040 events/s  3 remaining         6 %   299987 events/s  3 remaining         6 %   299834 events/s  3 remaining         6 %   299963 events/s  3 remaining         6 %   300046 events/s  3 remaining         6 %   300275 events/s  3 remaining         7 %   300494 events/s  3 remaining         7 %   300370 events/s  3 remaining         7 %   300487 events/s  3 remaining         7 %   300755 events/s  3 remaining         7 %   300968 events/s  3 remaining         7 %   301204 events/s  3 remaining         7 %   301230 events/s  3 remaining         7 %   301182 events/s  3 remaining         7 %   301455 events/s  3 remaining         8 %   301686 events/s  3 remaining         8 %   301995 events/s  3 remaining         8 %   302155 events/s  3 remaining         8 %   301910 events/s  3 remaining         8 %   302100 events/s  3 remaining         8 %   302400 events/s  3 remaining         8 %   302567 events/s  3 remaining         8 %   302816 events/s  3 remaining         8 %   302576 events/s  3 remaining         8 %   302692 events/s  3 remaining         8 %   302918 events/s  3 remaining         9 %   303004 events/s  3 remaining         9 %   303278 events/s  3 remaining         9 %   302910 events/s  3 remaining         9 %   302964 events/s  3 remaining         9 %   302959 events/s  3 remaining         9 %   302785 events/s  3 remaining         9 %   302799 events/s  3 remaining         9 %   301853 events/s  3 remaining         9 %   301267 events/s  3 remaining        10 %   300919 events/s  3 remaining        10 %   300662 events/s  3 remaining        10 %   300239 events/s  3 remaining        10 %   299895 events/s  3 remaining        10 %   299483 events/s  3 remaining        10 %   298992 events/s  3 remaining        10 %   298940 events/s  3 remaining        10 %   298977 events/s  3 remaining        10 %   298694 events/s  3 remaining        10 %   298292 events/s  3 remaining        10 %   298284 events/s  3 remaining        11 %   298003 events/s  3 remaining        11 %   298048 events/s  3 remaining        11 %   298181 events/s  3 remaining        11 %   298321 events/s  3 remaining        11 %   298440 events/s  3 remaining        11 %   298096 events/s  3 remaining        11 %   298116 events/s  3 remaining        11 %   298260 events/s  3 remaining        11 %   298479 events/s  3 remaining        12 %   298643 events/s  3 remaining        12 %   298335 events/s  3 remaining        12 %   298038 events/s  3 remaining        12 %   298110 events/s  3 remaining        12 %   298257 events/s  3 remaining        12 %   298366 events/s  3 remaining        12 %   297611 events/s  3 remaining        12 %   297703 events/s  3 remaining        12 %   297832 events/s  3 remaining        12 %   298011 events/s  3 remaining        12 %   297909 events/s  3 remaining        13 %   298022 events/s  3 remaining        13 %   298160 events/s  3 remaining        13 %   298255 events/s  3 remaining        13 %   298168 events/s  3 remaining        13 %   298109 events/s  3 remaining        13 %   298110 events/s  3 remaining        13 %   298188 events/s  3 remaining        13 %   298337 events/s  3 remaining        13 %   298417 events/s  3 remaining        14 %   298444 events/s  3 remaining        14 %   297842 events/s  3 remaining        14 %   297556 events/s  3 remaining        14 %   297673 events/s  3 remaining        14 %   297810 events/s  3 remaining        14 %   297573 events/s  3 remaining        14 %   297593 events/s  3 remaining        14 %   297719 events/s  3 remaining        14 %   297853 events/s  3 remaining        14 %   297988 events/s  3 remaining        14 %   297792 events/s  3 remaining        15 %   297919 events/s  3 remaining        15 %   298010 events/s  3 remaining        15 %   298116 events/s  3 remaining        15 %   298245 events/s  3 remaining        15 %   298117 events/s  3 remaining        15 %   298237 events/s  3 remaining        15 %   298429 events/s  3 remaining        15 %   298554 events/s  3 remaining        15 %   298645 events/s  3 remaining        16 %   298541 events/s  3 remaining        16 %   298633 events/s  3 remaining        16 %   298696 events/s  3 remaining        16 %   298732 events/s  3 remaining        16 %   298896 events/s  3 remaining        16 %   298812 events/s  3 remaining        16 %   298838 events/s  3 remaining        16 %   298864 events/s  3 remaining        16 %   298942 events/s  3 remaining        16 %   299081 events/s  3 remaining        16 %   298971 events/s  3 remaining        17 %   298986 events/s  3 remaining        17 %   299098 events/s  3 remaining        17 %   299216 events/s  3 remaining        17 %   299311 events/s  3 remaining        17 %   299272 events/s  3 remaining        17 %   298881 events/s  3 remaining        17 %   298711 events/s  3 remaining        17 %   298737 events/s  3 remaining        17 %   298852 events/s  3 remaining        18 %   298560 events/s  3 remaining        18 %   298601 events/s  3 remaining        18 %   298669 events/s  3 remaining        18 %   298815 events/s  3 remaining        18 %   298902 events/s  3 remaining        18 %   298734 events/s  3 remaining        18 %   298745 events/s  3 remaining        18 %   298819 events/s  3 remaining        18 %   298914 events/s  3 remaining        18 %   298935 events/s  3 remaining        18 %   298810 events/s  3 remaining        19 %   298839 events/s  3 remaining        19 %   298853 events/s  3 remaining        19 %   298944 events/s  3 remaining        19 %   298979 events/s  3 remaining        19 %   298959 events/s  3 remaining        19 %   298932 events/s  3 remaining        19 %   298981 events/s  3 remaining        19 %   299027 events/s  3 remaining        19 %   299031 events/s  3 remaining        20 %   298940 events/s  3 remaining        20 %   298977 events/s  3 remaining        20 %   299040 events/s  3 remaining        20 %   299015 events/s  3 remaining        20 %   299071 events/s  3 remaining        20 %   298878 events/s  3 remaining        20 %   298830 events/s  3 remaining        20 %   298883 events/s  3 remaining        20 %   298952 events/s  3 remaining        20 %   299068 events/s  3 remaining        20 %   298977 events/s  3 remaining        21 %   298999 events/s  3 remaining        21 %   299096 events/s  3 remaining        21 %   299156 events/s  3 remaining        21 %   299248 events/s  3 remaining        21 %   299111 events/s  3 remaining        21 %   299205 events/s  3 remaining        21 %   299261 events/s  3 remaining        21 %   299333 events/s  3 remaining        21 %   299433 events/s  3 remaining        22 %   299375 events/s  3 remaining        22 %   299460 events/s  3 remaining        22 %   299524 events/s  3 remaining        22 %   299601 events/s  3 remaining        22 %   299616 events/s  3 remaining        22 %   299454 events/s  3 remaining        22 %   299475 events/s  3 remaining        22 %   299549 events/s  3 remaining        22 %   299606 events/s  3 remaining        22 %   299706 events/s  3 remaining        22 %   299617 events/s  3 remaining        23 %   299492 events/s  3 remaining        23 %   299542 events/s  3 remaining        23 %   299581 events/s  3 remaining        23 %   299658 events/s  3 remaining        23 %   299572 events/s  3 remaining        23 %   299666 events/s  3 remaining        23 %   299662 events/s  3 remaining        23 %   299733 events/s  3 remaining        23 %   299776 events/s  3 remaining        24 %   299521 events/s  3 remaining        24 %   299365 events/s  3 remaining        24 %   299380 events/s  3 remaining        24 %   299451 events/s  3 remaining        24 %   299430 events/s  3 remaining        24 %   299396 events/s  3 remaining        24 %   299463 events/s  3 remaining        24 %   299498 events/s  3 remaining        24 %   299594 events/s  3 remaining        24 %   299575 events/s  3 remaining        24 %   299434 events/s  3 remaining        25 %   299304 events/s  3 remaining        25 %   299183 events/s  3 remaining        25 %   299199 events/s  3 remaining        25 %   299157 events/s  3 remaining        25 %   299170 events/s  3 remaining        25 %   299238 events/s  3 remaining        25 %   299265 events/s  2 remaining        25 %   299306 events/s  2 remaining        25 %   299249 events/s  2 remaining        26 %   299221 events/s  2 remaining        26 %   299264 events/s  2 remaining        26 %   299292 events/s  2 remaining        26 %   299304 events/s  2 remaining        26 %   299302 events/s  2 remaining        26 %   299325 events/s  2 remaining        26 %   299375 events/s  2 remaining        26 %   299344 events/s  2 remaining        26 %   299309 events/s  2 remaining        26 %   299172 events/s  2 remaining        26 %   298993 events/s  2 remaining        27 %   298891 events/s  2 remaining        27 %   298797 events/s  2 remaining        27 %   298855 events/s  2 remaining        27 %   298804 events/s  2 remaining        27 %   298864 events/s  2 remaining        27 %   298864 events/s  2 remaining        27 %   298911 events/s  2 remaining        27 %   298935 events/s  2 remaining        27 %   298874 events/s  2 remaining        28 %   298867 events/s  2 remaining        28 %   298739 events/s  2 remaining        28 %   298637 events/s  2 remaining        28 %   298618 events/s  2 remaining        28 %   298640 events/s  2 remaining        28 %   298674 events/s  2 remaining        28 %   298688 events/s  2 remaining        28 %   298725 events/s  2 remaining        28 %   298662 events/s  2 remaining        28 %   298556 events/s  2 remaining        28 %   298578 events/s  2 remaining        29 %   298644 events/s  2 remaining        29 %   298657 events/s  2 remaining        29 %   298568 events/s  2 remaining        29 %   298543 events/s  2 remaining        29 %   298559 events/s  2 remaining        29 %   298567 events/s  2 remaining        29 %   298585 events/s  2 remaining        29 %   298487 events/s  2 remaining        29 %   298516 events/s  2 remaining        29 %   298545 events/s  2 remaining        30 %   298545 events/s  2 remaining        30 %   298599 events/s  2 remaining        30 %   298558 events/s  2 remaining        30 %   298561 events/s  2 remaining        30 %   298633 events/s  2 remaining        30 %   298685 events/s  2 remaining        30 %   298725 events/s  2 remaining        30 %   298654 events/s  2 remaining        30 %   298663 events/s  2 remaining        30 %   298705 events/s  2 remaining        31 %   298777 events/s  2 remaining        31 %   298814 events/s  2 remaining        31 %   298787 events/s  2 remaining        31 %   298836 events/s  2 remaining        31 %   298886 events/s  2 remaining        31 %   298931 events/s  2 remaining        31 %   298934 events/s  2 remaining        31 %   298824 events/s  2 remaining        31 %   298854 events/s  2 remaining        32 %   298887 events/s  2 remaining        32 %   298903 events/s  2 remaining        32 %   298909 events/s  2 remaining        32 %   298812 events/s  2 remaining        32 %   298762 events/s  2 remaining        32 %   298744 events/s  2 remaining        32 %   298730 events/s  2 remaining        32 %   298770 events/s  2 remaining        32 %   298631 events/s  2 remaining        32 %   298629 events/s  2 remaining        32 %   298613 events/s  2 remaining        33 %   298622 events/s  2 remaining        33 %   298681 events/s  2 remaining        33 %   298604 events/s  2 remaining        33 %   298647 events/s  2 remaining        33 %   298673 events/s  2 remaining        33 %   298683 events/s  2 remaining        33 %   298742 events/s  2 remaining        33 %   298681 events/s  2 remaining        33 %   298688 events/s  2 remaining        34 %   298728 events/s  2 remaining        34 %   298710 events/s  2 remaining        34 %   298765 events/s  2 remaining        34 %   298725 events/s  2 remaining        34 %   298750 events/s  2 remaining        34 %   298828 events/s  2 remaining        34 %   298869 events/s  2 remaining        34 %   298928 events/s  2 remaining        34 %   298923 events/s  2 remaining        34 %   298910 events/s  2 remaining        34 %   298937 events/s  2 remaining        35 %   299004 events/s  2 remaining        35 %   299049 events/s  2 remaining        35 %   298994 events/s  2 remaining        35 %   299003 events/s  2 remaining        35 %   299025 events/s  2 remaining        35 %   299035 events/s  2 remaining        35 %   299057 events/s  2 remaining        35 %   298974 events/s  2 remaining        35 %   299025 events/s  2 remaining        36 %   299072 events/s  2 remaining        36 %   299087 events/s  2 remaining        36 %   299136 events/s  2 remaining        36 %   299057 events/s  2 remaining        36 %   299091 events/s  2 remaining        36 %   299139 events/s  2 remaining        36 %   299183 events/s  2 remaining        36 %   299225 events/s  2 remaining        36 %   299167 events/s  2 remaining        36 %   299182 events/s  2 remaining        36 %   299233 events/s  2 remaining        37 %   299302 events/s  2 remaining        37 %   299300 events/s  2 remaining        37 %   299247 events/s  2 remaining        37 %   299286 events/s  2 remaining        37 %   299364 events/s  2 remaining        37 %   299411 events/s  2 remaining        37 %   299409 events/s  2 remaining        37 %   299370 events/s  2 remaining        37 %   299412 events/s  2 remaining        38 %   299462 events/s  2 remaining        38 %   299500 events/s  2 remaining        38 %   299491 events/s  2 remaining        38 %   299428 events/s  2 remaining        38 %   299467 events/s  2 remaining        38 %   299526 events/s  2 remaining        38 %   299551 events/s  2 remaining        38 %   299607 events/s  2 remaining        38 %   299542 events/s  2 remaining        38 %   299576 events/s  2 remaining        38 %   299591 events/s  2 remaining        39 %   299627 events/s  2 remaining        39 %   299668 events/s  2 remaining        39 %   299610 events/s  2 remaining        39 %   299619 events/s  2 remaining        39 %   299653 events/s  2 remaining        39 %   299706 events/s  2 remaining        39 %   299759 events/s  2 remaining        39 %   299729 events/s  2 remaining        39 %   299641 events/s  2 remaining        40 %   299668 events/s  2 remaining        40 %   299694 events/s  2 remaining        40 %   299641 events/s  2 remaining        40 %   299537 events/s  2 remaining        40 %   299453 events/s  2 remaining        40 %   299373 events/s  2 remaining        40 %   299413 events/s  2 remaining        40 %   299451 events/s  2 remaining        40 %   299410 events/s  2 remaining        40 %   299381 events/s  2 remaining        40 %   299301 events/s  2 remaining        41 %   299243 events/s  2 remaining        41 %   299221 events/s  2 remaining        41 %   299222 events/s  2 remaining        41 %   299239 events/s  2 remaining        41 %   299272 events/s  2 remaining        41 %   299327 events/s  2 remaining        41 %   299341 events/s  2 remaining        41 %   299204 events/s  2 remaining        41 %   299217 events/s  2 remaining        42 %   299268 events/s  2 remaining        42 %   299301 events/s  2 remaining        42 %   299243 events/s  2 remaining        42 %   299153 events/s  2 remaining        42 %   299102 events/s  2 remaining        42 %   299036 events/s  2 remaining        42 %   299087 events/s  2 remaining        42 %   299049 events/s  2 remaining        42 %   299065 events/s  2 remaining        42 %   299119 events/s  2 remaining        42 %   299160 events/s  2 remaining        43 %   299160 events/s  2 remaining        43 %   299103 events/s  2 remaining        43 %   299127 events/s  2 remaining        43 %   299179 events/s  2 remaining        43 %   299205 events/s  2 remaining        43 %   299193 events/s  2 remaining        43 %   299123 events/s  2 remaining        43 %   299172 events/s  2 remaining        43 %   299229 events/s  2 remaining        44 %   299289 events/s  2 remaining        44 %   299307 events/s  2 remaining        44 %   299261 events/s  2 remaining        44 %   299267 events/s  2 remaining        44 %   299317 events/s  2 remaining        44 %   299340 events/s  2 remaining        44 %   299380 events/s  2 remaining        44 %   299338 events/s  2 remaining        44 %   299356 events/s  2 remaining        44 %   299406 events/s  2 remaining        44 %   299437 events/s  2 remaining        45 %   299493 events/s  2 remaining        45 %   299455 events/s  2 remaining        45 %   299460 events/s  2 remaining        45 %   299507 events/s  2 remaining        45 %   299517 events/s  2 remaining        45 %   299570 events/s  2 remaining        45 %   299561 events/s  2 remaining        45 %   299536 events/s  2 remaining        45 %   299566 events/s  2 remaining        46 %   299592 events/s  2 remaining        46 %   299649 events/s  2 remaining        46 %   299639 events/s  2 remaining        46 %   299593 events/s  2 remaining        46 %   299528 events/s  2 remaining        46 %   299457 events/s  2 remaining        46 %   299458 events/s  2 remaining        46 %   299416 events/s  2 remaining        46 %   299423 events/s  2 remaining        46 %   299451 events/s  2 remaining        46 %   299476 events/s  2 remaining        47 %   299513 events/s  2 remaining        47 %   299479 events/s  2 remaining        47 %   299469 events/s  2 remaining        47 %   299483 events/s  2 remaining        47 %   299488 events/s  2 remaining        47 %   299543 events/s  2 remaining        47 %   299516 events/s  2 remaining        47 %   299538 events/s  2 remaining        47 %   299578 events/s  2 remaining        48 %   299613 events/s  2 remaining        48 %   299657 events/s  2 remaining        48 %   299639 events/s  2 remaining        48 %   299635 events/s  2 remaining        48 %   299593 events/s  2 remaining        48 %   299633 events/s  2 remaining        48 %   299674 events/s  2 remaining        48 %   299558 events/s  2 remaining        48 %   299500 events/s  2 remaining        48 %   299446 events/s  2 remaining        48 %   299467 events/s  2 remaining        49 %   299486 events/s  2 remaining        49 %   299444 events/s  2 remaining        49 %   299371 events/s  2 remaining        49 %   299380 events/s  2 remaining        49 %   299426 events/s  2 remaining        49 %   299394 events/s  2 remaining        49 %   299388 events/s  2 remaining        49 %   299434 events/s  2 remaining        49 %   299465 events/s  2 remaining        50 %   299507 events/s  2 remaining        50 %   299521 events/s  2 remaining        50 %   299505 events/s  2 remaining        50 %   299522 events/s  2 remaining        50 %   299562 events/s  2 remaining        50 %   299567 events/s  2 remaining        50 %   299590 events/s  2 remaining        50 %   299559 events/s  2 remaining        50 %   299589 events/s  2 remaining        50 %   299611 events/s  2 remaining        50 %   299630 events/s  2 remaining        51 %   299673 events/s  2 remaining        51 %   299603 events/s  2 remaining        51 %   299544 events/s  2 remaining        51 %   299562 events/s  2 remaining        51 %   299588 events/s  2 remaining        51 %   299630 events/s  2 remaining        51 %   299589 events/s  2 remaining        51 %   299608 events/s  2 remaining        51 %   299630 events/s  2 remaining        52 %   299663 events/s  2 remaining        52 %   299697 events/s  2 remaining        52 %   299678 events/s  2 remaining        52 %   299708 events/s  2 remaining        52 %   299740 events/s  2 remaining        52 %   299797 events/s  2 remaining        52 %   299835 events/s  2 remaining        52 %   299805 events/s  2 remaining        52 %   299827 events/s  2 remaining        52 %   299824 events/s  2 remaining        52 %   299835 events/s  2 remaining        53 %   299859 events/s  2 remaining        53 %   299808 events/s  2 remaining        53 %   299846 events/s  2 remaining        53 %   299861 events/s  2 remaining        53 %   299896 events/s  2 remaining        53 %   299936 events/s  2 remaining        53 %   299900 events/s  2 remaining        53 %   299860 events/s  2 remaining        53 %   299890 events/s  2 remaining        54 %   299920 events/s  2 remaining        54 %   299951 events/s  2 remaining        54 %   299903 events/s  2 remaining        54 %   299922 events/s  2 remaining        54 %   299955 events/s  2 remaining        54 %   299996 events/s  2 remaining        54 %   300038 events/s  2 remaining        54 %   299894 events/s  2 remaining        54 %   299863 events/s  2 remaining        54 %   299880 events/s  2 remaining        54 %   299886 events/s  2 remaining        55 %   299903 events/s  2 remaining        55 %   299864 events/s  2 remaining        55 %   299869 events/s  2 remaining        55 %   299898 events/s  2 remaining        55 %   299926 events/s  2 remaining        55 %   299928 events/s  1 remaining        55 %   299907 events/s  1 remaining        55 %   299942 events/s  1 remaining        55 %   299975 events/s  1 remaining        56 %   300014 events/s  1 remaining        56 %   300032 events/s  1 remaining        56 %   299999 events/s  1 remaining        56 %   300010 events/s  1 remaining        56 %   300033 events/s  1 remaining        56 %   300037 events/s  1 remaining        56 %   300054 events/s  1 remaining        56 %   300014 events/s  1 remaining        56 %   300033 events/s  1 remaining        56 %   300026 events/s  1 remaining        56 %   299997 events/s  1 remaining        57 %   300026 events/s  1 remaining        57 %   299998 events/s  1 remaining        57 %   300035 events/s  1 remaining        57 %   300021 events/s  1 remaining        57 %   300014 events/s  1 remaining        57 %   300035 events/s  1 remaining        57 %   300002 events/s  1 remaining        57 %   300030 events/s  1 remaining        57 %   300040 events/s  1 remaining        58 %   299989 events/s  1 remaining        58 %   299944 events/s  1 remaining        58 %   299915 events/s  1 remaining        58 %   299861 events/s  1 remaining        58 %   299791 events/s  1 remaining        58 %   299747 events/s  1 remaining        58 %   299697 events/s  1 remaining        58 %   299708 events/s  1 remaining        58 %   299731 events/s  1 remaining        58 %   299760 events/s  1 remaining        58 %   299786 events/s  1 remaining        59 %   299738 events/s  1 remaining        59 %   299737 events/s  1 remaining        59 %   299783 events/s  1 remaining        59 %   299809 events/s  1 remaining        59 %   299839 events/s  1 remaining        59 %   299698 events/s  1 remaining        59 %   299562 events/s  1 remaining        59 %   299580 events/s  1 remaining        59 %   299591 events/s  1 remaining        60 %   299585 events/s  1 remaining        60 %   299577 events/s  1 remaining        60 %   299609 events/s  1 remaining        60 %   299627 events/s  1 remaining        60 %   299660 events/s  1 remaining        60 %   299649 events/s  1 remaining        60 %   299596 events/s  1 remaining        60 %   299601 events/s  1 remaining        60 %   299625 events/s  1 remaining        60 %   299619 events/s  1 remaining        60 %   299627 events/s  1 remaining        61 %   299616 events/s  1 remaining        61 %   299651 events/s  1 remaining        61 %   299665 events/s  1 remaining        61 %   299654 events/s  1 remaining        61 %   299582 events/s  1 remaining        61 %   299531 events/s  1 remaining        61 %   299484 events/s  1 remaining        61 %   299488 events/s  1 remaining        61 %   299511 events/s  1 remaining        62 %   299499 events/s  1 remaining        62 %   299508 events/s  1 remaining        62 %   299525 events/s  1 remaining        62 %   299532 events/s  1 remaining        62 %   299547 events/s  1 remaining        62 %   299527 events/s  1 remaining        62 %   299545 events/s  1 remaining        62 %   299570 events/s  1 remaining        62 %   299587 events/s  1 remaining        62 %   299585 events/s  1 remaining        62 %   299577 events/s  1 remaining        63 %   299575 events/s  1 remaining        63 %   299601 events/s  1 remaining        63 %   299613 events/s  1 remaining        63 %   299634 events/s  1 remaining        63 %   299626 events/s  1 remaining        63 %   299636 events/s  1 remaining        63 %   299654 events/s  1 remaining        63 %   299681 events/s  1 remaining        63 %   299707 events/s  1 remaining        64 %   299706 events/s  1 remaining        64 %   299643 events/s  1 remaining        64 %   299655 events/s  1 remaining        64 %   299320 events/s  1 remaining        64 %   299253 events/s  1 remaining        64 %   299188 events/s  1 remaining        64 %   299122 events/s  1 remaining        64 %   299087 events/s  1 remaining        64 %   299010 events/s  1 remaining        64 %   298995 events/s  1 remaining        64 %   299000 events/s  1 remaining        65 %   299016 events/s  1 remaining        65 %   298976 events/s  1 remaining        65 %   298926 events/s  1 remaining        65 %   298953 events/s  1 remaining        65 %   298970 events/s  1 remaining        65 %   298977 events/s  1 remaining        65 %   298905 events/s  1 remaining        65 %   298885 events/s  1 remaining        65 %   298839 events/s  1 remaining        66 %   298862 events/s  1 remaining        66 %   298834 events/s  1 remaining        66 %   298833 events/s  1 remaining        66 %   298864 events/s  1 remaining        66 %   298896 events/s  1 remaining        66 %   298930 events/s  1 remaining        66 %   298941 events/s  1 remaining        66 %   298941 events/s  1 remaining        66 %   298978 events/s  1 remaining        66 %   299020 events/s  1 remaining        66 %   299034 events/s  1 remaining        67 %   299067 events/s  1 remaining        67 %   299041 events/s  1 remaining        67 %   299066 events/s  1 remaining        67 %   299093 events/s  1 remaining        67 %   299112 events/s  1 remaining        67 %   299140 events/s  1 remaining        67 %   299103 events/s  1 remaining        67 %   299132 events/s  1 remaining        67 %   299149 events/s  1 remaining        68 %   299170 events/s  1 remaining        68 %   299196 events/s  1 remaining        68 %   299166 events/s  1 remaining        68 %   299200 events/s  1 remaining        68 %   299232 events/s  1 remaining        68 %   299251 events/s  1 remaining        68 %   299273 events/s  1 remaining        68 %   299209 events/s  1 remaining        68 %   299220 events/s  1 remaining        68 %   299232 events/s  1 remaining        68 %   299244 events/s  1 remaining        69 %   299271 events/s  1 remaining        69 %   299215 events/s  1 remaining        69 %   299228 events/s  1 remaining        69 %   299199 events/s  1 remaining        69 %   299216 events/s  1 remaining        69 %   299228 events/s  1 remaining        69 %   299169 events/s  1 remaining        69 %   299119 events/s  1 remaining        69 %   299081 events/s  1 remaining        70 %   299048 events/s  1 remaining        70 %   299043 events/s  1 remaining        70 %   299059 events/s  1 remaining        70 %   299070 events/s  1 remaining        70 %   299099 events/s  1 remaining        70 %   299109 events/s  1 remaining        70 %   299095 events/s  1 remaining        70 %   299067 events/s  1 remaining        70 %   299025 events/s  1 remaining        70 %   298968 events/s  1 remaining        70 %   298958 events/s  1 remaining        71 %   298887 events/s  1 remaining        71 %   298897 events/s  1 remaining        71 %   298926 events/s  1 remaining        71 %   298952 events/s  1 remaining        71 %   298971 events/s  1 remaining        71 %   298930 events/s  1 remaining        71 %   298950 events/s  1 remaining        71 %   298979 events/s  1 remaining        71 %   298994 events/s  1 remaining        72 %   298985 events/s  1 remaining        72 %   298943 events/s  1 remaining        72 %   298970 events/s  1 remaining        72 %   299003 events/s  1 remaining        72 %   299020 events/s  1 remaining        72 %   299008 events/s  1 remaining        72 %   298981 events/s  1 remaining        72 %   298995 events/s  1 remaining        72 %   299017 events/s  1 remaining        72 %   299017 events/s  1 remaining        72 %   299039 events/s  1 remaining        73 %   299015 events/s  1 remaining        73 %   299044 events/s  1 remaining        73 %   299069 events/s  1 remaining        73 %   299086 events/s  1 remaining        73 %   299111 events/s  1 remaining        73 %   299082 events/s  1 remaining        73 %   299098 events/s  1 remaining        73 %   299139 events/s  1 remaining        73 %   299158 events/s  1 remaining        74 %   299189 events/s  1 remaining        74 %   299167 events/s  1 remaining        74 %   299154 events/s  1 remaining        74 %   299169 events/s  1 remaining        74 %   299190 events/s  1 remaining        74 %   299213 events/s  1 remaining        74 %   299191 events/s  1 remaining        74 %   299215 events/s  1 remaining        74 %   299238 events/s  1 remaining        74 %   299270 events/s  1 remaining        74 %   299297 events/s  1 remaining        75 %   299282 events/s  1 remaining        75 %   299298 events/s  1 remaining        75 %   299316 events/s  1 remaining        75 %   299335 events/s  1 remaining        75 %   299355 events/s  1 remaining        75 %   299353 events/s  1 remaining        75 %   299346 events/s  1 remaining        75 %   299364 events/s  1 remaining        75 %   299385 events/s  1 remaining        76 %   299397 events/s  1 remaining        76 %   299375 events/s  1 remaining        76 %   299382 events/s  1 remaining        76 %   299411 events/s  1 remaining        76 %   299436 events/s  1 remaining        76 %   299459 events/s  1 remaining        76 %   299456 events/s  1 remaining        76 %   299454 events/s  1 remaining        76 %   299485 events/s  1 remaining        76 %   299511 events/s  1 remaining        76 %   299544 events/s  1 remaining        77 %   299556 events/s  1 remaining        77 %   299519 events/s  1 remaining        77 %   299526 events/s  1 remaining        77 %   299541 events/s  1 remaining        77 %   299569 events/s  1 remaining        77 %   299586 events/s  1 remaining        77 %   299543 events/s  1 remaining        77 %   299560 events/s  1 remaining        77 %   299582 events/s  1 remaining        78 %   299609 events/s  1 remaining        78 %   299629 events/s  1 remaining        78 %   299593 events/s  1 remaining        78 %   299621 events/s  1 remaining        78 %   299637 events/s  1 remaining        78 %   299642 events/s  1 remaining        78 %   299660 events/s  1 remaining        78 %   299652 events/s  1 remaining        78 %   299643 events/s  1 remaining        78 %   299647 events/s  1 remaining        78 %   299671 events/s  1 remaining        79 %   299677 events/s  1 remaining        79 %   299670 events/s  1 remaining        79 %   299691 events/s  1 remaining        79 %   299703 events/s  1 remaining        79 %   299723 events/s  1 remaining        79 %   299662 events/s  1 remaining        79 %   299659 events/s  1 remaining        79 %   299677 events/s  1 remaining        79 %   299709 events/s  1 remaining        80 %   299715 events/s  1 remaining        80 %   299712 events/s  1 remaining        80 %   299699 events/s  1 remaining        80 %   299703 events/s  1 remaining        80 %   299716 events/s  1 remaining        80 %   299720 events/s  1 remaining        80 %   299739 events/s  1 remaining        80 %   299712 events/s  1 remaining        80 %   299731 events/s  1 remaining        80 %   299723 events/s  1 remaining        80 %   299754 events/s  1 remaining        81 %   299778 events/s  1 remaining        81 %   299759 events/s  1 remaining        81 %   299768 events/s  1 remaining        81 %   299778 events/s  1 remaining        81 %   299806 events/s  1 remaining        81 %   299833 events/s  1 remaining        81 %   299826 events/s  1 remaining        81 %   299842 events/s  1 remaining        81 %   299755 events/s  1 remaining        82 %   299774 events/s  1 remaining        82 %   299803 events/s  1 remaining        82 %   299782 events/s  1 remaining        82 %   299801 events/s  1 remaining        82 %   299825 events/s  1 remaining        82 %   299831 events/s  1 remaining        82 %   299839 events/s  1 remaining        82 %   299809 events/s  1 remaining        82 %   299826 events/s  1 remaining        82 %   299849 events/s  1 remaining        82 %   299856 events/s  1 remaining        83 %   299865 events/s  1 remaining        83 %   299828 events/s  1 remaining        83 %   299855 events/s  1 remaining        83 %   299872 events/s  1 remaining        83 %   299894 events/s  1 remaining        83 %   299921 events/s  1 remaining        83 %   299888 events/s  1 remaining        83 %   299905 events/s  1 remaining        83 %   299918 events/s  1 remaining        84 %   299946 events/s  1 remaining        84 %   299972 events/s  1 remaining        84 %   299933 events/s  1 remaining        84 %   299932 events/s  1 remaining        84 %   299954 events/s  1 remaining        84 %   299971 events/s  1 remaining        84 %   299993 events/s  1 remaining        84 %   299965 events/s  1 remaining        84 %   299974 events/s  1 remaining        84 %   299991 events/s  1 remaining        84 %   299997 events/s  1 remaining        85 %   299998 events/s  1 remaining        85 %   299976 events/s  1 remaining        85 %   299930 events/s  1 remaining        85 %   299943 events/s  1 remaining        85 %   299964 events/s  1 remaining        85 %   299965 events/s  0 remaining        85 %   299930 events/s  0 remaining        85 %   299945 events/s  0 remaining        85 %   299961 events/s  0 remaining        86 %   299965 events/s  0 remaining        86 %   299970 events/s  0 remaining        86 %   299952 events/s  0 remaining        86 %   299978 events/s  0 remaining        86 %   300012 events/s  0 remaining        86 %   300018 events/s  0 remaining        86 %   300031 events/s  0 remaining        86 %   300011 events/s  0 remaining        86 %   300021 events/s  0 remaining        86 %   300027 events/s  0 remaining        86 %   300031 events/s  0 remaining        87 %   300043 events/s  0 remaining        87 %   300031 events/s  0 remaining        87 %   300052 events/s  0 remaining        87 %   300067 events/s  0 remaining        87 %   300073 events/s  0 remaining        87 %   300101 events/s  0 remaining        87 %   300086 events/s  0 remaining        87 %   300084 events/s  0 remaining        87 %   300089 events/s  0 remaining        88 %   300062 events/s  0 remaining        88 %   300065 events/s  0 remaining        88 %   300046 events/s  0 remaining        88 %   300067 events/s  0 remaining        88 %   300056 events/s  0 remaining        88 %   300066 events/s  0 remaining        88 %   300086 events/s  0 remaining        88 %   300059 events/s  0 remaining        88 %   300071 events/s  0 remaining        88 %   300105 events/s  0 remaining        88 %   300123 events/s  0 remaining        89 %   300124 events/s  0 remaining        89 %   300096 events/s  0 remaining        89 %   300108 events/s  0 remaining        89 %   300131 events/s  0 remaining        89 %   300151 events/s  0 remaining        89 %   300172 events/s  0 remaining        89 %   300149 events/s  0 remaining        89 %   300108 events/s  0 remaining        89 %   300118 events/s  0 remaining        90 %   300135 events/s  0 remaining        90 %   300160 events/s  0 remaining        90 %   300132 events/s  0 remaining        90 %   300140 events/s  0 remaining        90 %   300164 events/s  0 remaining        90 %   300184 events/s  0 remaining        90 %   300197 events/s  0 remaining        90 %   300191 events/s  0 remaining        90 %   300214 events/s  0 remaining        90 %   300226 events/s  0 remaining        90 %   300244 events/s  0 remaining        91 %   300254 events/s  0 remaining        91 %   300244 events/s  0 remaining        91 %   300250 events/s  0 remaining        91 %   300263 events/s  0 remaining        91 %   300274 events/s  0 remaining        91 %   300282 events/s  0 remaining        91 %   300259 events/s  0 remaining        91 %   300224 events/s  0 remaining        91 %   300234 events/s  0 remaining        92 %   300242 events/s  0 remaining        92 %   300233 events/s  0 remaining        92 %   300200 events/s  0 remaining        92 %   300194 events/s  0 remaining        92 %   300198 events/s  0 remaining        92 %   300215 events/s  0 remaining        92 %   300240 events/s  0 remaining        92 %   300225 events/s  0 remaining        92 %   300254 events/s  0 remaining        92 %   300270 events/s  0 remaining        92 %   300279 events/s  0 remaining        93 %   300297 events/s  0 remaining        93 %   300284 events/s  0 remaining        93 %   300292 events/s  0 remaining        93 %   300306 events/s  0 remaining        93 %   300320 events/s  0 remaining        93 %   300291 events/s  0 remaining        93 %   300228 events/s  0 remaining        93 %   300175 events/s  0 remaining        93 %   300106 events/s  0 remaining        94 %   300054 events/s  0 remaining        94 %   300003 events/s  0 remaining        94 %   299963 events/s  0 remaining        94 %   299917 events/s  0 remaining        94 %   299864 events/s  0 remaining        94 %   299804 events/s  0 remaining        94 %   299761 events/s  0 remaining        94 %   299731 events/s  0 remaining        94 %   299749 events/s  0 remaining        94 %   299756 events/s  0 remaining        94 %   299730 events/s  0 remaining        95 %   299747 events/s  0 remaining        95 %   299755 events/s  0 remaining        95 %   299764 events/s  0 remaining        95 %   299687 events/s  0 remaining        95 %   299568 events/s  0 remaining        95 %   299531 events/s  0 remaining        95 %   299488 events/s  0 remaining        95 %   299444 events/s  0 remaining        95 %   299406 events/s  0 remaining        96 %   299364 events/s  0 remaining        96 %   299319 events/s  0 remaining        96 %   299287 events/s  0 remaining        96 %   299234 events/s  0 remaining        96 %   299193 events/s  0 remaining        96 %   299146 events/s  0 remaining        96 %   299119 events/s  0 remaining        96 %   299103 events/s  0 remaining        96 %   299098 events/s  0 remaining        96 %   299114 events/s  0 remaining        96 %   299131 events/s  0 remaining        97 %   299136 events/s  0 remaining        97 %   299102 events/s  0 remaining        97 %   299055 events/s  0 remaining        97 %   299005 events/s  0 remaining        97 %   298955 events/s  0 remaining        97 %   298917 events/s  0 remaining        97 %   298879 events/s  0 remaining        97 %   298836 events/s  0 remaining        97 %   298836 events/s  0 remaining        98 %   298850 events/s  0 remaining        98 %   298819 events/s  0 remaining        98 %   298825 events/s  0 remaining        98 %   298829 events/s  0 remaining        98 %   298787 events/s  0 remaining        98 %   298742 events/s  0 remaining        98 %   298705 events/s  0 remaining        98 %   298711 events/s  0 remaining        98 %   298723 events/s  0 remaining        98 %   298734 events/s  0 remaining        98 %   298731 events/s  0 remaining        99 %   298724 events/s  0 remaining        99 %   298739 events/s  0 remaining        99 %   298751 events/s  0 remaining        99 %   298771 events/s  0 remaining        99 %   298781 events/s  0 remaining        99 %   298779 events/s  0 remaining        99 %   298785 events/s  0 remaining        99 %   298808 events/s  0 remaining        99 %   298840 events/s  0 remaining       100 %   298866 events/s  0 remaining       100 %   298841 events/s  0 remaining       100 %   298863 events/s  0 remaining       100 %   298884 events/s  0 remaining       100 %   298892 events/s  0 remaining                                                            
-Real time:   3.4   System time:  0.03   User time:   3.4   3e+05 events/s
-4299 photopeak counts
