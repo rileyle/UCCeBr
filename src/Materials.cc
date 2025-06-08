@@ -73,6 +73,7 @@
   polypropylene = NISTman->FindOrBuildMaterial("G4_POLYPROPYLENE");
   glass         = NISTman->FindOrBuildMaterial("G4_Pyrex_Glass");
   plastic       = NISTman->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
+  teflon        = NISTman->FindOrBuildMaterial("G4_TEFLON");
   
   Be = new G4Material("Be",  4., 9.012182*g/mole,  1.84*g/cm3);
   C  = new G4Material("C",   6., 12.011*g/mole,    2.15*g/cm3);

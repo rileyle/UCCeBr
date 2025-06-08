@@ -11,6 +11,7 @@ CeBr3_3x6_Detector::CeBr3_3x6_Detector(G4LogicalVolume* experimentalHall_log,
   MuMetal = materials->FindMaterial("MuMetal");
   //pmtMat = materials->FindMaterial("pmtMat");
   quartz = materials->FindMaterial("quartz");
+  teflon = materials->FindMaterial("G4_TEFLON");
   
   crystalLength = 152*mm;      // 4 inches
   crystalRadius = 76/2.0*mm;   // 1.5 inch
@@ -22,6 +23,9 @@ CeBr3_3x6_Detector::CeBr3_3x6_Detector(G4LogicalVolume* experimentalHall_log,
   canThickness = 1.0*mm;
   canRadius    = 82.8/2*mm;
 
+  reflectorSideThickness  = 0.5*mm;
+  reflectorFrontThickness = 0.25*mm;
+  
   // This is the position of the center of the front face of the can.
   DetPos.setX(0);
   DetPos.setY(0);
@@ -31,6 +35,11 @@ CeBr3_3x6_Detector::CeBr3_3x6_Detector(G4LogicalVolume* experimentalHall_log,
   crystalShift.setY(0);
   crystalShift.setZ(crystalLength/2 + 2*canThickness);
   crystalPos = DetPos + crystalShift;
+
+  reflectorShift.setX(0);
+  reflectorShift.setY(0);
+  reflectorShift.setZ(2*canThickness - reflectorFrontThickness);
+  crystalPos = DetPos + reflectorShift;
 
   pmtLength        = 261*mm - 104*mm;
   shieldThickness  = 0.64*mm;
@@ -62,11 +71,7 @@ CeBr3_3x6_Detector::CeBr3_3x6_Detector(G4LogicalVolume* experimentalHall_log,
   pmtShift.setZ(1); 
   pmtShift.setMag(canLength); 
   pmtPos = DetPos + pmtShift;
-  
-  // LR: CONSIDER ADDING THE REFLECTOR (LIKELY PFTE TAPE---
-  //     SEE F.G.A. Quarati et al, NIMA729, 596 (2013)
-  //     ---MAYBE NOT SIGNIFICANT SCATTERER)
-  
+ 
   thetad = 90.*deg;
   phid = 90.*deg;
 
@@ -107,6 +112,26 @@ void CeBr3_3x6_Detector::Construct()
 		       czPlane, crInner, crOuter);
 
   can_log = new G4LogicalVolume(can, Al, "can_log", 0, 0, 0);
+
+  const G4double rzPlane[4] =
+    {0,
+     reflectorFrontThickness,
+     reflectorFrontThickness,
+     crystalLength+reflectorFrontThickness};
+  const G4double rrInner[4] = 
+    {0,
+     0,
+     crystalRadius,
+     crystalRadius};
+  const G4double rrOuter[4] =
+    {crystalRadius+reflectorSideThickness,
+     crystalRadius+reflectorSideThickness,
+     crystalRadius+reflectorSideThickness,
+     crystalRadius+reflectorSideThickness};
+  reflector = new G4Polycone("Reflector", startAngle, spanningAngle, 4,
+			     rzPlane, rrInner, rrOuter);
+
+  reflector_log = new G4LogicalVolume(can, teflon, "reflector_log", 0, 0, 0);
 
   const G4double pzPlane[6] =
     {0,
@@ -176,6 +201,8 @@ void CeBr3_3x6_Detector::Construct()
 
   assembly->AddPlacedVolume(can_log, canPos, &DetRot);
 
+  assembly->AddPlacedVolume(reflector_log, reflectorPos, &DetRot);
+
   assembly->AddPlacedVolume(pmt_log, pmtPos, &DetRot);
 
   assembly->AddPlacedVolume(shield_log, pmtPos, &DetRot);
@@ -205,8 +232,6 @@ void CeBr3_3x6_Detector::Construct()
   crystal_log->SetVisAttributes(Vis_1);
 
   can_log->SetVisAttributes(Vis_2);
-
-  //  cap_log->SetVisAttributes(Vis_2);
 
   pmt_log->SetVisAttributes(Vis_3);
 

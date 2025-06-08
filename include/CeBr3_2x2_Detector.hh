@@ -50,6 +50,7 @@ public:
 
   G4LogicalVolume* crystal_log;
   G4LogicalVolume* can_log;
+  G4LogicalVolume* reflector_log;
   G4LogicalVolume* pmt_log;
   G4LogicalVolume* shield_log;
   G4LogicalVolume* window_log;
@@ -59,6 +60,7 @@ public:
   G4Material* Al;
   G4Material* MuMetal;
   G4Material* quartz;
+  G4Material* teflon;
 
   // dimensions
   G4double Length;
@@ -66,6 +68,8 @@ public:
   G4double canThickness;
   G4double canRadius;
   G4double canLength;
+  G4double reflectorSideThickness;
+  G4double reflectorFrontThickness;
   G4double pmtLength;
   G4double pmtFrontRadius;
   G4double pmtBaseRadius;
@@ -91,12 +95,15 @@ public:
   G4ThreeVector pmtShift;
   G4ThreeVector pmtPos;
   G4ThreeVector canPos;
+  G4ThreeVector reflectorPos;
+  G4ThreeVector reflectorShift;
   G4ThreeVector windowShift;
   G4ThreeVector windowPos;
   G4double thetad;
   G4double phid;
 
   G4Polycone* can;
+  G4Polycone* reflector;
   G4Polycone* pmt;
   G4Polycone* shield;
   G4Tubs* window;

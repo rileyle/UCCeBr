@@ -44,6 +44,7 @@ private:
   G4Material* CeBr3;
   G4Material* quartz;
   G4Material* MuMetal;
+  G4Material* teflon;
   //  G4Material* pmtMat;
   G4Material* G10;
   G4Material* vacuum;
