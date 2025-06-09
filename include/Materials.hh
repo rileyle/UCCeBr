@@ -24,6 +24,7 @@ private:
   G4Element* elementMg;
   G4Element* elementAl;
   G4Element* elementSi;
+  G4Element* elementCl;
   G4Element* elementTi;
   G4Element* elementV;
   G4Element* elementFe;
@@ -46,6 +47,7 @@ private:
   G4Material* MuMetal;
   G4Material* teflon;
   //  G4Material* pmtMat;
+  G4Material* EpoxyResin;
   G4Material* G10;
   G4Material* vacuum;
   G4Material* polyethylene;

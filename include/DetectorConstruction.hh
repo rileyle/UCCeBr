@@ -9,6 +9,8 @@
 #include "CeBr3_Array_Messenger.hh"
 #include "Lead_Brick.hh"
 #include "Lead_Brick_Messenger.hh"
+#include "Lab_Bench.hh"
+#include "Lab_Bench_Messenger.hh"
 #include "Target.hh"
 #include "Target_Messenger.hh"
 #include "Source_Capsule.hh"
@@ -37,6 +39,7 @@ private:
 
   Source_Capsule* capsule;
   Lead_Brick* brick;
+  Lab_Bench* bench;
   Target* target;
 
   // Logical volumes
@@ -51,6 +54,7 @@ private:
   CeBr3_Array_Messenger* the_CeBr3_Array_Messenger;
   Source_Capsule_Messenger* capsule_Messenger;
   Lead_Brick_Messenger* brick_Messenger;
+  Lab_Bench_Messenger* bench_Messenger;
   Target_Messenger* target_Messenger;
 
   Materials* materials;

@@ -18,14 +18,16 @@ DetectorConstruction::DetectorConstruction()
   the_CeBr3_Array = new CeBr3_Array(ExpHall_log, materials);
   the_CeBr3_Array_Messenger = new CeBr3_Array_Messenger(the_CeBr3_Array);
 
-  // Source Capsule
-
   capsule = new Source_Capsule(ExpHall_log, materials);
   capsule_Messenger = new Source_Capsule_Messenger(capsule);
   
   brick = new Lead_Brick(ExpHall_log, materials);
 
-  brick_Messenger = new Lead_Brick_Messenger(brick);  
+  brick_Messenger = new Lead_Brick_Messenger(brick);
+
+  bench = new Lab_Bench(ExpHall_log, materials);
+
+  bench_Messenger = new Lab_Bench_Messenger(bench);
 
   target = new Target(ExpHall_log, materials);
 
@@ -36,7 +38,6 @@ DetectorConstruction::~DetectorConstruction()
 {
   delete ExperimentalHallMessenger;
   delete TrackerGammaSDMessenger;
-
 }
 
 G4VPhysicalVolume* DetectorConstruction::Construct()

@@ -69,6 +69,20 @@ Realistic simulations of radioactive sources can be run as illustrated by `./exa
 
 > Include the source capsule. Must be issued after the source positioning and capsule rotation commands.
 
+### Lab Bench
+
+Optionally, an epoxy resin lab bench can be included in simulations.
+
+    /Bench/setX <double> <unit>
+    /Bench/setY <double> <unit>
+    /Bench/setZ <double> <unit>
+
+> Set the position of the bench.
+
+    /Brick/Construct
+
+> Include the bench. Must be issued after the positioning commands.
+
 ### Lead Bricks
 
 Optionally, 2" x 4" x 6" lead bricks can be included in simulations.

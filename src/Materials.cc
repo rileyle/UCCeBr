@@ -11,6 +11,7 @@
   elementMg = new G4Element("Magnesium", "Mg",12., 24.3050*g/mole);
   elementAl = new G4Element("Aluminium", "Al",13., 26.9815*g/mole);
   elementSi = new G4Element("Silicon",   "Si",14., 28.0855*g/mole);
+  elementCl = new G4Element("Chlorine",  "Cl",17.,   35.45*g/mole);
   elementTi = new G4Element("Titanium",  "Ti",22.,   47.90*g/mole);
   elementV  = new G4Element("Vanadium",  "V", 23., 50.9415*g/mole);
   elementFe = new G4Element("Iron",      "Fe",26.,  55.845*g/mole);
@@ -45,6 +46,14 @@
   MuMetal->AddElement(elementFe, 15);
   MuMetal->AddElement(elementMo, 5);
 
+  EpoxyResin = new G4Material("EpoxyResin",
+			      2.16*g/cm3,
+			      4);
+  EpoxyResin->AddElement(elementC, 21);
+  EpoxyResin->AddElement(elementH, 25);
+  EpoxyResin->AddElement(elementCl, 1);
+  EpoxyResin->AddElement(elementO,  5);
+  
   //  pmtMat = new G4Material("pmtMat", 13., 26.982*g/mole, 1.35*g/cm3);   //LR  (Air, copper, and aluminum?)
   
   LH = new G4Material("LH", 2., 2.0159*g/mole, 70.99*mg/cm3);
