@@ -33,10 +33,12 @@ public:
 
   void Construct();
 
-  void setX(G4double);
-  void setY(G4double);
-  void setZ(G4double);
+  void setX(G4double x){Pos.setX(x);};
+  void setY(G4double y){Pos.setY(y);};
+  void setZ(G4double z){Pos.setZ(z);};
 
+  void setDensity(G4double d){density = d;};
+  
   void PlaceBench();
 
   private:
@@ -46,8 +48,9 @@ public:
   G4LogicalVolume* bench_log;
 
   // Materials
-  G4Material* EpoxyResin;
-
+  G4Material* material;
+  G4double    density;
+  
   // dimensions
   G4double Length;
   G4double Width;

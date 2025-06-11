@@ -22,6 +22,11 @@ Lab_Bench_Messenger::Lab_Bench_Messenger(Lab_Bench* B)
   ZCmd->SetParameterName("choice",false);
   ZCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
 
+  rhoCmd = new G4UIcmdWithADouble("/Bench/setDensity",this);
+  rhoCmd->SetGuidance("Set the density of the bench in g/cm^3");
+  rhoCmd->SetParameterName("choice",false);
+  rhoCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
+
   cCmd = new G4UIcmdWithoutParameter("/Bench/Construct",this);
   cCmd->SetGuidance("Construct the bench");
   cCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
@@ -33,6 +38,7 @@ Lab_Bench_Messenger::~Lab_Bench_Messenger()
   delete XCmd;
   delete YCmd;
   delete ZCmd;
+  delete rhoCmd;
   delete cCmd;
 }
 
@@ -44,6 +50,8 @@ void Lab_Bench_Messenger::SetNewValue(G4UIcommand* command,G4String newValue)
     {Bench->setY(YCmd->GetNewDoubleValue(newValue));}
   if( command == ZCmd )
     {Bench->setZ(ZCmd->GetNewDoubleValue(newValue));}
+  if( command == rhoCmd )
+    {Bench->setDensity(rhoCmd->GetNewDoubleValue(newValue));}
   if( command == cCmd )
     {Bench->Construct();}
 }

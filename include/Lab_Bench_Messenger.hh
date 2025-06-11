@@ -26,6 +26,7 @@ class Lab_Bench_Messenger: public G4UImessenger
     G4UIcmdWithADoubleAndUnit* XCmd;
     G4UIcmdWithADoubleAndUnit* YCmd;
     G4UIcmdWithADoubleAndUnit* ZCmd;
+    G4UIcmdWithADouble* rhoCmd;
     G4UIcmdWithoutParameter*   cCmd;
 };
 

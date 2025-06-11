@@ -28,7 +28,7 @@
   // Materials
 
   CeBr3 = new G4Material("CeBr3",     //name
-			 5.18*g/cm3,  //density
+			 5.23*g/cm3,  //density
 			 2);          //ncomponents
   CeBr3->AddElement(elementCe, 1);
   CeBr3->AddElement(elementBr, 3);
@@ -46,9 +46,12 @@
   MuMetal->AddElement(elementFe, 15);
   MuMetal->AddElement(elementMo, 5);
 
+  // Lab bench material at Ursinus College
+  //  (density set to fit measured Compton continuum; there
+  //   appears to be material mixed in with the resin)
   EpoxyResin = new G4Material("EpoxyResin",
-			      2.16*g/cm3,
-			      4);
+			      2.5*g/cm3,
+  			      4);
   EpoxyResin->AddElement(elementC, 21);
   EpoxyResin->AddElement(elementH, 25);
   EpoxyResin->AddElement(elementCl, 1);
