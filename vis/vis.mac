@@ -1,5 +1,7 @@
 /Source/Capsule/Construct
 /Bench/Construct
+/Cradle/setZ 20 cm
+/Cradle/Construct
 /CeBr3/Type 3x4
 /CeBr3/setZ 20 cm
 /CeBr3/rotateX 90 deg

@@ -11,6 +11,8 @@
 #include "Lead_Brick_Messenger.hh"
 #include "Lab_Bench.hh"
 #include "Lab_Bench_Messenger.hh"
+#include "Cradle.hh"
+#include "Cradle_Messenger.hh"
 #include "Target.hh"
 #include "Target_Messenger.hh"
 #include "Source_Capsule.hh"
@@ -40,6 +42,7 @@ private:
   Source_Capsule* capsule;
   Lead_Brick* brick;
   Lab_Bench* bench;
+  Cradle* cradle;
   Target* target;
 
   // Logical volumes
@@ -55,6 +58,7 @@ private:
   Source_Capsule_Messenger* capsule_Messenger;
   Lead_Brick_Messenger* brick_Messenger;
   Lab_Bench_Messenger* bench_Messenger;
+  Cradle_Messenger* cradle_Messenger;
   Target_Messenger* target_Messenger;
 
   Materials* materials;

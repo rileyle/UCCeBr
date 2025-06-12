@@ -29,6 +29,10 @@ DetectorConstruction::DetectorConstruction()
 
   bench_Messenger = new Lab_Bench_Messenger(bench);
 
+  cradle = new Cradle(ExpHall_log, materials);
+
+  cradle_Messenger = new Cradle_Messenger(cradle);
+  
   target = new Target(ExpHall_log, materials);
 
   target_Messenger = new Target_Messenger(target);

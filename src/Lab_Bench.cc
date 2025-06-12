@@ -6,7 +6,7 @@ Lab_Bench::Lab_Bench(G4LogicalVolume* experimentalHall_log,
   materials=mat;
   expHall_log=experimentalHall_log;
 
-  density = 2.5*mg/cm3;
+  density = 2.5;
 
   // Lab bench at Ursinus College, Pfahler Hall 013
   Length = 121.5*cm;
@@ -33,8 +33,9 @@ void Lab_Bench::Construct()
 
   // We create the material here so that the user can set the density
   // before calling Construct().
+  G4cout << "Density = " << density << ", " << density*mg/cm3 << G4endl;
   material = new G4Material("LabBenchMaterial",
-			    density,
+			    density*g/cm3,
 			    4);
   material->AddElement(G4Element::GetElement("Carbon"),   21);
   material->AddElement(G4Element::GetElement("Hydrogen"), 25);
