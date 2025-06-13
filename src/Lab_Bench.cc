@@ -33,7 +33,6 @@ void Lab_Bench::Construct()
 
   // We create the material here so that the user can set the density
   // before calling Construct().
-  G4cout << "Density = " << density << ", " << density*mg/cm3 << G4endl;
   material = new G4Material("LabBenchMaterial",
 			    density*g/cm3,
 			    4);
