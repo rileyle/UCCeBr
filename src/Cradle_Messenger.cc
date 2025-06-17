@@ -22,6 +22,26 @@ Cradle_Messenger::Cradle_Messenger(Cradle* C)
   ZCmd->SetParameterName("choice",false);
   ZCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
 
+  rXCmd = new G4UIcmdWithADoubleAndUnit("/Cradle/rotateX",this);
+  rXCmd->SetGuidance("Rotate the cradle about the x axis");
+  rXCmd->SetParameterName("choice",false);
+  rXCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
+
+  rYCmd = new G4UIcmdWithADoubleAndUnit("/Cradle/rotateY",this);
+  rYCmd->SetGuidance("Rotate the cradle about the y axis");
+  rYCmd->SetParameterName("choice",false);
+  rYCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
+
+  rZCmd = new G4UIcmdWithADoubleAndUnit("/Cradle/rotateZ",this);
+  rZCmd->SetGuidance("Rotate the cradle about the z axis");
+  rZCmd->SetParameterName("choice",false);
+  rZCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
+
+  OCmd = new G4UIcmdWithADoubleAndUnit("/Cradle/setOffset",this);
+  OCmd->SetGuidance("Set the offset between cradle halves");
+  OCmd->SetParameterName("choice",false);
+  OCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
+  
   cCmd = new G4UIcmdWithoutParameter("/Cradle/Construct",this);
   cCmd->SetGuidance("Construct the cradle");
   cCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
@@ -33,6 +53,10 @@ Cradle_Messenger::~Cradle_Messenger()
   delete XCmd;
   delete YCmd;
   delete ZCmd;
+  delete rXCmd;
+  delete rYCmd;
+  delete rZCmd;
+  delete OCmd;
   delete cCmd;
 }
 
@@ -44,6 +68,14 @@ void Cradle_Messenger::SetNewValue(G4UIcommand* command,G4String newValue)
     {fCradle->setY(YCmd->GetNewDoubleValue(newValue));}
   if( command == ZCmd )
     {fCradle->setZ(ZCmd->GetNewDoubleValue(newValue));}
+  if( command == rXCmd )
+    {fCradle->rotateX(rXCmd->GetNewDoubleValue(newValue));}
+  if( command == rYCmd )
+    {fCradle->rotateY(rYCmd->GetNewDoubleValue(newValue));}
+  if( command == rZCmd )
+    {fCradle->rotateZ(rZCmd->GetNewDoubleValue(newValue));}
+  if( command == OCmd )
+    {fCradle->setOffset(OCmd->GetNewDoubleValue(newValue));}
   if( command == cCmd )
-    {fCradle->Construct();}
+    {fCradle->Construct(); fCradle->PlaceCradle();}
 }

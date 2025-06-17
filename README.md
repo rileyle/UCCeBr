@@ -41,9 +41,9 @@ This is a simple example collecting a spectrum with a single CeBr detector from 
 
 > Set the name of the optional geometry file. If this command is present, a CeBr3 detector is placed for each line in the specified file. Each line has the format:
 
-        <X (mm)>  <Y (mm)>  <Z (mm)>  <X rotation (deg)>  <Y rotation (deg)>  <Z rotation (deg)>
+        <type(2x2 | 3x4 | 3x6)>  <X (mm)>  <Y (mm)>  <Z (mm)>  <X rotation (deg)>  <Y rotation (deg)>  <Z rotation (deg)>
 
-> If a geometry file is specified, the positioning and rotation commands above are ignored.
+> If a geometry file is specified, the positioning and rotation commands above are ignored. If "Cradle" or "cradle" is included in the <type> string, a cradle is included with the detector.
 
 ### Source
 

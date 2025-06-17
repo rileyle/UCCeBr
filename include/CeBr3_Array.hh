@@ -1,16 +1,19 @@
 #ifndef CeBr3_Array_H
-#define CeBr3_Array_H 1
+#define CeBr3_Array_H
 
+//#include "DetectorConstruction.hh"
+//#include "G4RunManager.hh"
 #include "CeBr3_2x2_Detector.hh"
 #include "CeBr3_3x4_Detector.hh"
 #include "CeBr3_3x6_Detector.hh"
+#include "Cradle.hh"
 #include "TrackerGammaSD.hh"
 
 class CeBr3_Array 
 {
 public:
   
-  CeBr3_Array(G4LogicalVolume*, Materials*);
+  CeBr3_Array(G4LogicalVolume*, Materials*, Cradle*);
   ~CeBr3_Array();
 
   // Used by the CeBr3_Array_Messenger for placing a single detector
@@ -36,6 +39,7 @@ private:
   CeBr3_2x2_Detector* detector_2x2;
   CeBr3_3x4_Detector* detector_3x4;
   CeBr3_3x6_Detector* detector_3x6;
+  Cradle* cradle;
   
   G4ThreeVector assemblyPos;
   G4RotationMatrix assemblyRot;

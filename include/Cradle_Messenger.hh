@@ -26,6 +26,10 @@ class Cradle_Messenger: public G4UImessenger
     G4UIcmdWithADoubleAndUnit* XCmd;
     G4UIcmdWithADoubleAndUnit* YCmd;
     G4UIcmdWithADoubleAndUnit* ZCmd;
+    G4UIcmdWithADoubleAndUnit* rXCmd;
+    G4UIcmdWithADoubleAndUnit* rYCmd;
+    G4UIcmdWithADoubleAndUnit* rZCmd;
+    G4UIcmdWithADoubleAndUnit* OCmd;
     G4UIcmdWithoutParameter*   cCmd;
 };
 

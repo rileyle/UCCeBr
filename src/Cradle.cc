@@ -22,11 +22,18 @@ Cradle::Cradle(G4LogicalVolume* experimentalHall_log,
   Pos.setY(-Depth/2);
   Pos.setZ(Length/2);
 
-  Offset.setX(0);
-  Offset.setY(0);
-  Offset.setZ(104*mm); // 3x4 can length
+  Offset = 104*mm; // 3x4 can length
   
   Rot = G4RotationMatrix::IDENTITY;
+
+  assemblyRot = Rot;
+  assemblyPos.setX(0);
+  assemblyPos.setY(0);
+  assemblyPos.setZ(0);
+    
+  assembly    = new G4AssemblyVolume();
+
+  constructed = false;
 }
 
 
@@ -46,7 +53,14 @@ void Cradle::Construct()
   fCradle_log = new G4LogicalVolume(fCradle, EpoxyResin,
 				    "fCradle_log", 0, 0, 0);
 
-  PlaceCradle();
+  assembly->AddPlacedVolume(fCradle_log, Pos, &Rot);
+
+  G4ThreeVector Pos2;
+  Pos2.setX(Pos.getX());
+  Pos2.setY(Pos.getY());
+  Pos2.setZ(Pos.getZ() + Offset);
+  
+  assembly->AddPlacedVolume(fCradle_log, Pos2, &Rot);
 
   G4Colour dGrey (0.8, 0.8, 0.8, 1.0);
   G4VisAttributes* Vis = new G4VisAttributes(dGrey);
@@ -54,16 +68,21 @@ void Cradle::Construct()
   Vis->SetForceSolid(true);
 
   fCradle_log->SetVisAttributes(Vis);
- 
+
+  constructed = true;
+  
   return;
 }
 //---------------------------------------------------------------------
 void Cradle::PlaceCradle()
 {
+  assembly->MakeImprint(expHall_log,
+			assemblyPos, &assemblyRot,
+			10000);
   // Use the current Pos, Offset, and Rot to place the cradle.
-  new G4PVPlacement(G4Transform3D(Rot, Pos),
-		    fCradle_log, "frontCradle", expHall_log, false, 0); 
-  new G4PVPlacement(G4Transform3D(Rot, Pos+Offset),
-		    fCradle_log, "backCradle", expHall_log, false, 0); 
+  //  new G4PVPlacement(G4Transform3D(Rot, Pos),
+  //		    fCradle_log, "frontCradle", expHall_log, false, 0); 
+  //  new G4PVPlacement(G4Transform3D(Rot, Pos+Offset),
+  //		    fCradle_log, "backCradle", expHall_log, false, 0); 
 }
 //---------------------------------------------------------------------

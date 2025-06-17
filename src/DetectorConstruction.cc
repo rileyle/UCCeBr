@@ -13,12 +13,8 @@ DetectorConstruction::DetectorConstruction()
   //   ExperimentalHall->Report();
   ExperimentalHallMessenger = new Experimental_Hall_Messenger(ExperimentalHall);
 
-  // CeBr3 Array
-
-  the_CeBr3_Array = new CeBr3_Array(ExpHall_log, materials);
-  the_CeBr3_Array_Messenger = new CeBr3_Array_Messenger(the_CeBr3_Array);
-
   capsule = new Source_Capsule(ExpHall_log, materials);
+
   capsule_Messenger = new Source_Capsule_Messenger(capsule);
   
   brick = new Lead_Brick(ExpHall_log, materials);
@@ -29,13 +25,18 @@ DetectorConstruction::DetectorConstruction()
 
   bench_Messenger = new Lab_Bench_Messenger(bench);
 
+  target = new Target(ExpHall_log, materials);
+
+  target_Messenger = new Target_Messenger(target);
+
   cradle = new Cradle(ExpHall_log, materials);
 
   cradle_Messenger = new Cradle_Messenger(cradle);
   
-  target = new Target(ExpHall_log, materials);
+  the_CeBr3_Array = new CeBr3_Array(ExpHall_log, materials, cradle);
 
-  target_Messenger = new Target_Messenger(target);
+  the_CeBr3_Array_Messenger = new CeBr3_Array_Messenger(the_CeBr3_Array);
+
 }
 
 DetectorConstruction::~DetectorConstruction()

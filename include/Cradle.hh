@@ -6,6 +6,7 @@
 #include "G4Box.hh"
 #include "G4Tubs.hh"
 #include "G4SubtractionSolid.hh"
+#include "G4AssemblyVolume.hh"
 #include "G4LogicalVolume.hh"
 #include "G4VPhysicalVolume.hh"
 #include "G4ThreeVector.hh"
@@ -35,10 +36,18 @@ public:
 
   void Construct();
 
-  void setX(G4double x){Pos.setX(x);};
-  void setY(G4double y){Pos.setY(y - Depth/2);};
-  void setZ(G4double z){Pos.setZ(z + Length/2);};
-
+  G4AssemblyVolume* GetAssembly(){return assembly;}
+  
+  void setX(G4double x){assemblyPos.setX(x);};
+  void setY(G4double y){assemblyPos.setY(y);};
+  void setZ(G4double z){assemblyPos.setZ(z);};
+  void rotateX(G4double ax){assemblyRot.rotateX(ax);};
+  void rotateY(G4double ay){assemblyRot.rotateY(ay);};
+  void rotateZ(G4double az){assemblyRot.rotateZ(az);};
+  void setOffset(G4double o){Offset = o;};
+  G4double getOffset(){return Offset;};
+  G4bool isConstructed(){return constructed;};
+  
   void PlaceCradle();
 
   private:
@@ -57,12 +66,18 @@ public:
   G4double Radius;
 
   // position
-  G4RotationMatrix Rot;
   G4ThreeVector Pos;
+  G4RotationMatrix Rot;
   G4ThreeVector cradleShift;
-  G4ThreeVector Offset;
-
+  G4double Offset;
+  G4ThreeVector assemblyPos;
+  G4RotationMatrix assemblyRot;
+  
   G4SubtractionSolid* fCradle;
+
+  G4AssemblyVolume* assembly;
+
+  G4bool constructed;
 };
 
 #endif

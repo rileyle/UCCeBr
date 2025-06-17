@@ -7,12 +7,12 @@
 #include "Experimental_Hall_Messenger.hh"
 #include "CeBr3_Array.hh"
 #include "CeBr3_Array_Messenger.hh"
+#include "Cradle.hh"
+#include "Cradle_Messenger.hh"
 #include "Lead_Brick.hh"
 #include "Lead_Brick_Messenger.hh"
 #include "Lab_Bench.hh"
 #include "Lab_Bench_Messenger.hh"
-#include "Cradle.hh"
-#include "Cradle_Messenger.hh"
 #include "Target.hh"
 #include "Target_Messenger.hh"
 #include "Source_Capsule.hh"
@@ -33,6 +33,7 @@ public:
 
   G4VPhysicalVolume* Construct();
   Source_Capsule* getSourceCapsule(){return capsule;};
+  Cradle* getCradle(){return cradle;};
   G4LogicalVolume* HallLog(){return ExpHall_log;};
 
 private:
