@@ -1,8 +1,6 @@
+
 # Geometry =====================================================================
-/Source/Capsule/Construct
-/CeBr3/Type 3x4
-/CeBr3/setZ 20 cm
-/CeBr3/rotateX 90 deg
+/CeBr3/GeometryFile two_3x4s_at_5cm.geo
 
 # Processes ====================================================================
 
@@ -16,7 +14,7 @@
 
 # Initialize the source ========================================================
 /gun/particle ion
-/gun/ion 55 137
+/gun/ion 27 60
 
-/Output/Filename cs137.out
+/Output/Filename co60.out
 /run/beamOn 1000000

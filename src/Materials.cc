@@ -33,12 +33,14 @@
   CeBr3->AddElement(elementCe, 1);
   CeBr3->AddElement(elementBr, 3);
 
+  // Optical quartz beween crystal and PMT
   quartz = new G4Material("quartz",     //name
 			  2.21*g/cm3,  //density
 			  2);          //ncomponents
   quartz->AddElement(elementSi, 1);
   quartz->AddElement(elementO, 2);
 
+  // PMT magnetic shields
   MuMetal = new G4Material("MuMetal",
 			   8.7*g/cm3,
 			   3);
@@ -46,19 +48,15 @@
   MuMetal->AddElement(elementFe, 15);
   MuMetal->AddElement(elementMo, 5);
 
-  // Lab bench material at Ursinus College
-  //  (density set to fit measured Compton continuum; there
-  //   appears to be material mixed in with the resin)
+  // FormLabs black resin v4.1
   EpoxyResin = new G4Material("EpoxyResin",
-			      2.5*g/cm3,
+			      1.2*g/cm3,
   			      4);
   EpoxyResin->AddElement(elementC, 21);
   EpoxyResin->AddElement(elementH, 25);
   EpoxyResin->AddElement(elementCl, 1);
   EpoxyResin->AddElement(elementO,  5);
-  
-  //  pmtMat = new G4Material("pmtMat", 13., 26.982*g/mole, 1.35*g/cm3);   //LR  (Air, copper, and aluminum?)
-  
+    
   LH = new G4Material("LH", 2., 2.0159*g/mole, 70.99*mg/cm3);
 
   G10 = new G4Material("G10", 1.70*g/cm3, 4);

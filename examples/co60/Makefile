@@ -1,4 +1,4 @@
-all:  cs137.root  cs137_simple.root
+all:  $(patsubst %.mac,%.root,$(wildcard *.mac))
 	echo "Geant4 simulations done."
 
 # Pattern rules for running Geant4 simulations.
@@ -9,9 +9,8 @@ all:  cs137.root  cs137_simple.root
 	UCCeBr3 $*.mac 2>&1 | tee $*.log
 
 # Pattern rule for sorting the simulation output into Root histograms
-# and Radware ascii spectra
 %.root : %.out
-	./cs137_sim_sort.py $*.out 2>&1 | tee -a $*.log
+	./co60_sim_sort.py $*.out 2>&1 | tee -a $*.log
 
 clean:
 	rm *.log *.out *.root *.wrl
