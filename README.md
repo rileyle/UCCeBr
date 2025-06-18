@@ -13,13 +13,16 @@ Compile:
 
     $ make
 
-## Example
-
- (Run the example by typing `make` at the command line in the corresponding directory.)
+## Examples
+Run an example by typing `make` at the command line in the corresponding directory. Python 3.x is requred to run the sorting codes, and the [root data analysis framework](https://root.cern/) is needed to work with the sorted histograms.
 
 ### `./examples/cs137`
 
-This is a simple example collecting a spectrum with a single CeBr detector from a <sup>137</sup>Cs source. Two macro files are included. cs137.mac uses the radioactive decay class to simulate the decay of 137Cs. cs137_simple.mac emits 662 keV gamma rays directly. A sorting code `CeBr3Sort.py` is included which produces a histogram in the `.root` file. A `Makefile` is included.
+This is a simple example collecting a spectrum with a single CeBr detector from a <sup>137</sup>Cs source. Two macro files are included. cs137.mac uses the radioactive decay class to simulate the decay of 137Cs. cs137_simple.mac emits 662 keV gamma rays directly. A sorting code `cs137_sim_sort.py` is included which produces histograms in a `.root` file. A `Makefile` is included.
+
+### `./examples/co60`
+
+This is a simulation of a <sup>60</sup>Co source placed between two detector to demonstrate coincidence data. A sorting code `co60_sim_sort.py` is included which produces histograms in a `.root` file. A `Makefile` is included.
 
 ## Macro File Commands
 
