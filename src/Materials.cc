@@ -8,6 +8,7 @@
   elementC  = new G4Element("Carbon",    "C",  6.,  12.011*g/mole);
   elementN  = new G4Element("Nitrogen",  "N",  7.,  14.007*g/mole);
   elementO  = new G4Element("Oxygen",    "O",  8., 15.9994*g/mole);
+  elementF  = new G4Element("Flourine",  "F",  9., 18.9984*g/mole);
   elementMg = new G4Element("Magnesium", "Mg",12., 24.3050*g/mole);
   elementAl = new G4Element("Aluminium", "Al",13., 26.9815*g/mole);
   elementSi = new G4Element("Silicon",   "Si",14., 28.0855*g/mole);
@@ -56,7 +57,13 @@
   EpoxyResin->AddElement(elementH, 25);
   EpoxyResin->AddElement(elementCl, 1);
   EpoxyResin->AddElement(elementO,  5);
-    
+
+  // PTFE tape (details provded by Scionix via Mark Slattery
+  //            @ Berleley Nucleonics)
+  TeflonTape = new G4Material("TeflonTape", 0.45*g/cm3, 2);
+  TeflonTape->AddElement(elementC, 2);
+  TeflonTape->AddElement(elementF, 4);
+  
   LH = new G4Material("LH", 2., 2.0159*g/mole, 70.99*mg/cm3);
 
   G10 = new G4Material("G10", 1.70*g/cm3, 4);
@@ -83,7 +90,7 @@
   polypropylene = NISTman->FindOrBuildMaterial("G4_POLYPROPYLENE");
   glass         = NISTman->FindOrBuildMaterial("G4_Pyrex_Glass");
   plastic       = NISTman->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
-  teflon        = NISTman->FindOrBuildMaterial("G4_TEFLON");
+  //  teflon        = NISTman->FindOrBuildMaterial("G4_TEFLON");
   
   Be = new G4Material("Be",  4., 9.012182*g/mole,  1.84*g/cm3);
   C  = new G4Material("C",   6., 12.011*g/mole,    2.15*g/cm3);
@@ -103,7 +110,7 @@
 G4Material*  Materials::FindMaterial(G4String materialName)
 {
 
-   // search the material by its name 
+
   G4Material* pttoMaterial = G4Material::GetMaterial(materialName);  
 
   return pttoMaterial;

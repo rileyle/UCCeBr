@@ -11,7 +11,7 @@ CeBr3_3x6_Detector::CeBr3_3x6_Detector(G4LogicalVolume* experimentalHall_log,
   MuMetal = materials->FindMaterial("MuMetal");
   //pmtMat = materials->FindMaterial("pmtMat");
   quartz = materials->FindMaterial("quartz");
-  teflon = materials->FindMaterial("G4_TEFLON");
+  TeflonTape = materials->FindMaterial("TeflonTape");
   
   crystalLength = 152*mm;      // 4 inches
   crystalRadius = 76/2.0*mm;   // 1.5 inch
@@ -23,8 +23,8 @@ CeBr3_3x6_Detector::CeBr3_3x6_Detector(G4LogicalVolume* experimentalHall_log,
   canThickness = 1.0*mm;
   canRadius    = 82.8/2*mm;
 
-  reflectorSideThickness  = 0.5*mm;
-  reflectorFrontThickness = 0.25*mm;
+  reflectorSideThickness  = 2.3*mm;
+  reflectorFrontThickness = 1.0*mm;
   
   // This is the position of the center of the front face of the can.
   DetPos.setX(0);
@@ -131,7 +131,8 @@ void CeBr3_3x6_Detector::Construct()
   reflector = new G4Polycone("Reflector", startAngle, spanningAngle, 4,
 			     rzPlane, rrInner, rrOuter);
 
-  reflector_log = new G4LogicalVolume(can, teflon, "reflector_log", 0, 0, 0);
+  reflector_log = new G4LogicalVolume(reflector, TeflonTape, "reflector_log",
+				      0, 0, 0);
 
   const G4double pzPlane[6] =
     {0,

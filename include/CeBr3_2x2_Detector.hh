@@ -60,7 +60,7 @@ public:
   G4Material* Al;
   G4Material* MuMetal;
   G4Material* quartz;
-  G4Material* teflon;
+  G4Material* TeflonTape;
 
   // dimensions
   G4double Length;
