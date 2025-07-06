@@ -33,13 +33,38 @@ void Lab_Bench::Construct()
 
   // We create the material here so that the user can set the density
   // before calling Construct().
+  //
+  // The material is likely an epoxy resin
+  // (C21 H25 Cl O5, density 0.9 - 2.6 g/cm3)
+  // with some kind of silica (Si O2) mixed in.
+  // (density 1.4 - 2.8 mg/cm3)
+  //
+  // Here, we assume equal densities for the resin and silica.
+
+  G4double resin_frac = 0.8;
+
+  G4double m_resin  = 12.011*21 + 1.0079*25 + 35.45 + 15.9994*5;
+  G4double m_silica = 28.0855 + 15.9994*2;
+  G4double m_total  = resin_frac*m_resin + (1-resin_frac)*m_silica;
+  
+  G4double C_frac   = resin_frac*12.011*21/m_total;
+  G4double H_frac   = resin_frac*1.0079*25/m_total;
+  G4double Cl_frac  = resin_frac*35.45/m_total;
+  G4double O_frac   = (resin_frac*15.9994*5 + (1-resin_frac)*15.9994*2)/m_total;
+  G4double Si_frac  = (1-resin_frac)*28.0855/m_total;
+  
   material = new G4Material("LabBenchMaterial",
 			    density*g/cm3,
-			    4);
-  material->AddElement(G4Element::GetElement("Carbon"),   21);
-  material->AddElement(G4Element::GetElement("Hydrogen"), 25);
-  material->AddElement(G4Element::GetElement("Chlorine"),  1);
-  material->AddElement(G4Element::GetElement("Oxygen"),    5);
+			    5);
+  material->AddElement(G4Element::GetElement("Carbon"),   C_frac);
+  material->AddElement(G4Element::GetElement("Hydrogen"), H_frac);
+  material->AddElement(G4Element::GetElement("Chlorine"), Cl_frac);
+  material->AddElement(G4Element::GetElement("Oxygen"),   O_frac);
+  material->AddElement(G4Element::GetElement("Silicon"),  Si_frac);
+
+  G4cout << "Bench composition: " 
+  	 << "C: "   << C_frac << ", H: "  << H_frac  << ", Cl: " << Cl_frac
+  	 << ", O: " << O_frac << ", Si: " << Si_frac << G4endl;
   
   bench_log = new G4LogicalVolume(bench, material,
 				  "bench_log", 0, 0, 0);
