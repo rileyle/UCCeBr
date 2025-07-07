@@ -6,7 +6,7 @@ Lab_Bench::Lab_Bench(G4LogicalVolume* experimentalHall_log,
   materials=mat;
   expHall_log=experimentalHall_log;
 
-  density = 2.5;
+  density = 2.6;
 
   // Lab bench at Ursinus College, Pfahler Hall 013
   Length = 121.5*cm;
@@ -62,9 +62,10 @@ void Lab_Bench::Construct()
   material->AddElement(G4Element::GetElement("Oxygen"),   O_frac);
   material->AddElement(G4Element::GetElement("Silicon"),  Si_frac);
 
-  G4cout << "Bench composition: " 
+  G4cout << "Lab Bench composition: " 
   	 << "C: "   << C_frac << ", H: "  << H_frac  << ", Cl: " << Cl_frac
   	 << ", O: " << O_frac << ", Si: " << Si_frac << G4endl;
+  G4cout << "Lab Bench density = " << density << " g/cm3" << G4endl;
   
   bench_log = new G4LogicalVolume(bench, material,
 				  "bench_log", 0, 0, 0);
