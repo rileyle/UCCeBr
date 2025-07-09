@@ -120,18 +120,26 @@ void EventAction::EndOfEventAction(const G4Event* ev)
       }
 
       //G4cout << "**** Track Total Energy = " << (*gammaCollection)[0]->GetTotalEnergy()/keV << G4endl;
-
+      
       for(int det=0; det<detMax+1; det++){
 
 	if(Edep[det] > 0) {
+
+	  // Look for a full-energy event (including pileup)
 	  G4int photopeak = 0;
-	  
-	  if(abs(eventInfo->GetEmittedGammaEnergy(0) - Edep[det])<0.001){
-	    photopeak = 1;
-	    eventInfo->SetFullEnergy(1);
-	  } else {
-	    eventInfo->SetFullEnergy(0);
+	  for(G4int i=0; i < eventInfo->GetNEmittedGammas(); i++){
+	    if(abs(eventInfo->GetEmittedGammaEnergy(i) - Edep[det])<0.001)
+	      photopeak = 1;
+	    // Look for full-energy pileup
+	    for(G4int j=i+1; j < eventInfo->GetNEmittedGammas(); j++){
+	      if(abs(eventInfo->GetEmittedGammaEnergy(i)
+		     + eventInfo->GetEmittedGammaEnergy(j)
+		     - Edep[det])<0.001)
+		photopeak = 1;
+	    }
 	  }
+	  eventInfo->SetFullEnergy(photopeak);
+	  
 	  evfile
 	    << std::setw(15) << std::right
 	    << event_id
