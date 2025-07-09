@@ -17,6 +17,8 @@
 #include "Target_Messenger.hh"
 #include "Source_Capsule.hh"
 #include "Source_Capsule_Messenger.hh"
+#include "Source_Cradle.hh"
+#include "Source_Cradle_Messenger.hh"
 #include "G4LogicalVolume.hh"
 #include "G4VPhysicalVolume.hh"
 #include "TrackerGammaSD.hh"
@@ -41,6 +43,7 @@ private:
   CeBr3_Array* the_CeBr3_Array;
 
   Source_Capsule* capsule;
+  Source_Cradle* source_cradle;
   Lead_Brick* brick;
   Lab_Bench* bench;
   Cradle* cradle;
@@ -57,6 +60,7 @@ private:
   TrackerGammaSD_Messenger* TrackerGammaSDMessenger;
   CeBr3_Array_Messenger* the_CeBr3_Array_Messenger;
   Source_Capsule_Messenger* capsule_Messenger;
+  Source_Cradle_Messenger* source_cradle_Messenger;
   Lead_Brick_Messenger* brick_Messenger;
   Lab_Bench_Messenger* bench_Messenger;
   Cradle_Messenger* cradle_Messenger;

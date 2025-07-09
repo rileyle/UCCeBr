@@ -16,6 +16,10 @@ DetectorConstruction::DetectorConstruction()
   capsule = new Source_Capsule(ExpHall_log, materials);
 
   capsule_Messenger = new Source_Capsule_Messenger(capsule);
+
+  source_cradle = new Source_Cradle(ExpHall_log, materials);
+
+  source_cradle_Messenger = new Source_Cradle_Messenger(source_cradle);
   
   brick = new Lead_Brick(ExpHall_log, materials);
 
