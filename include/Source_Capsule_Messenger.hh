@@ -23,6 +23,7 @@ class Source_Capsule_Messenger: public G4UImessenger
    
     G4UIdirectory*             Source_CapsuleDir;  
 
+    G4UIcmdWithAString* tCmd;
     G4UIcmdWithADoubleAndUnit* rXCmd;
     G4UIcmdWithADoubleAndUnit* rYCmd;
     G4UIcmdWithADoubleAndUnit* rZCmd;

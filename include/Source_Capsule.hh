@@ -4,6 +4,7 @@
 #include "G4Material.hh"
 #include "Materials.hh"
 #include "G4Tubs.hh"
+#include "G4Polycone.hh"
 #include "G4LogicalVolume.hh"
 #include "G4VPhysicalVolume.hh"
 #include "G4ThreeVector.hh"
@@ -32,20 +33,24 @@ public:
   ~Source_Capsule();
 
   G4VPhysicalVolume *Construct();
-  void setX(G4double);
-  void setY(G4double);
-  void setZ(G4double);
+  void setType(G4String t){capsuleType = t;};
+  void setX(G4double x){Pos.setX(x);};
+  void setY(G4double y){Pos.setY(y);};
+  void setZ(G4double z){Pos.setZ(z);};
 
-  void rotateX(G4double);
-  void rotateY(G4double);
-  void rotateZ(G4double);
+  void rotateX(G4double ax){Rot.rotateX(ax);};
+  void rotateY(G4double ay){Rot.rotateY(ay);};
+  void rotateZ(G4double az){Rot.rotateZ(az);};
 
   G4double getDepth(){return Depth;};
   G4double getRadius(){return Radius;};
+  
   void PlaceCapsule();
 
   private:
 
+  G4String capsuleType;
+  
   // Logical volume
 
   G4LogicalVolume* capsule_log;
@@ -56,19 +61,21 @@ public:
 
   // Materials
   G4Material* polyethylene;
+  G4Material* aluminum;
 
   // dimensions
   G4double Depth;
   G4double Radius;
   G4double innerRadius;
+  G4double Thickness;
   G4double startAngle;
   G4double spanningAngle;
 
   // position
   G4RotationMatrix Rot;
   G4ThreeVector Pos;
-
-  G4Tubs* capsule;
+  
+  //  G4Tubs* capsule;
 
 };
 
