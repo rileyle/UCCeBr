@@ -8,7 +8,9 @@ Source_Capsule::Source_Capsule(G4LogicalVolume* experimentalHall_log,
 
   capsuleType = "plastic";
   
-  polyethylene = materials->FindMaterial("G4_POLYETHYLENE");
+  //  polyethylene = materials->FindMaterial("G4_POLYETHYLENE");
+  plexiglass = materials->FindMaterial("G4_PLEXIGLASS");
+
   aluminum = materials->FindMaterial("Al");
 
   Pos.setX(0);
@@ -44,7 +46,7 @@ G4VPhysicalVolume* Source_Capsule::Construct()
     G4Polycone* capsule = new G4Polycone("Capsule", startAngle, spanningAngle,
 					 4, zPlane, rInner, rOuter);
     
-    capsule_log = new G4LogicalVolume(capsule, polyethylene, "capsule_log",
+    capsule_log = new G4LogicalVolume(capsule, plexiglass, "capsule_log",
 				      0, 0, 0);
 
   } else if(capsuleType == "GF-152-M"){

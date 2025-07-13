@@ -60,7 +60,8 @@ public:
   G4VPhysicalVolume* capsule_phys;
 
   // Materials
-  G4Material* polyethylene;
+  //  G4Material* polyethylene;
+  G4Material* plexiglass;
   G4Material* aluminum;
 
   // dimensions
