@@ -53,6 +53,7 @@ private:
   G4Material* vacuum;
   G4Material* polyethylene;
   G4Material* polypropylene;
+  G4Material* plexiglass;
   G4Material* glass;
   G4Material* plastic;
   G4Material* ssteel;

@@ -88,6 +88,7 @@
   vacuum        = NISTman->FindOrBuildMaterial("G4_Galactic");
   polyethylene  = NISTman->FindOrBuildMaterial("G4_POLYETHYLENE");
   polypropylene = NISTman->FindOrBuildMaterial("G4_POLYPROPYLENE");
+  plexiglass    = NISTman->FindOrBuildMaterial("G4_PLEXIGLASS");
   glass         = NISTman->FindOrBuildMaterial("G4_Pyrex_Glass");
   plastic       = NISTman->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
   //  teflon        = NISTman->FindOrBuildMaterial("G4_TEFLON");
