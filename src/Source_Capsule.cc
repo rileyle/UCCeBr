@@ -34,9 +34,16 @@ G4VPhysicalVolume* Source_Capsule::Construct()
     startAngle      = 45.*deg;
     spanningAngle   = 360.*deg;
 
-    G4Tubs* capsule = new G4Tubs("Capsule", innerRadius, Radius, Depth/2.0,
-				 startAngle, spanningAngle);
-
+    const G4double zPlane[4] =
+      {-Depth/2.0,      0,           0,   Depth/2.0};
+    const G4double rInner[4] =
+      {         0,      0, innerRadius, innerRadius};
+    const G4double rOuter[4] =
+      {    Radius, Radius,      Radius,      Radius};
+    
+    G4Polycone* capsule = new G4Polycone("Capsule", startAngle, spanningAngle,
+					 4, zPlane, rInner, rOuter);
+    
     capsule_log = new G4LogicalVolume(capsule, polyethylene, "capsule_log",
 				      0, 0, 0);
 
