@@ -30,24 +30,27 @@ G4VPhysicalVolume* Source_Capsule::Construct()
 
   if(capsuleType == "plastic"){
 
-    Depth=2.54*.1875*cm;
-    Radius=2.54*.5*cm;
-    //    innerRadius=2.54*.125*cm;
+    // Spectrum Techniques disk sources
+    // https://www.spectrumtechniques.com/product/rss8
+    
+    Depth=0.125*25.4*mm;           // 1/8 inch thickness
+    Radius=25.4/2.0*mm;            // 1 inch OD
+    innerRadius=0.125/2.0*25.4*mm; // 1/4 inch diameter divot
     startAngle      = 45.*deg;
     spanningAngle   = 360.*deg;
 
-    //    const G4double zPlane[4] =
-    //      {-Depth/2.0,      0,           0,   Depth/2.0};
-    //    const G4double rInner[4] =
-    //      {         0,      0, innerRadius, innerRadius};
-    //    const G4double rOuter[4] =
-    //      {    Radius, Radius,      Radius,      Radius};
+    const G4double zPlane[4] =
+      {-Depth/2.0,      0,           0,   Depth/2.0};
+    const G4double rInner[4] =
+      {         0,      0, innerRadius, innerRadius};
+    const G4double rOuter[4] =
+      {    Radius, Radius,      Radius,      Radius};
     
-    //    G4Polycone* capsule = new G4Polycone("Capsule", startAngle, spanningAngle,
-    //					 4, zPlane, rInner, rOuter);
+    G4Polycone* capsule = new G4Polycone("Capsule", startAngle, spanningAngle,
+    					 4, zPlane, rInner, rOuter);
 
-    G4Tubs* capsule = new G4Tubs("Capsule", 0, Radius, Depth/2.0,
-				 startAngle,spanningAngle);
+    //    G4Tubs* capsule = new G4Tubs("Capsule", 0, Radius, Depth/2.0,
+    //				 startAngle,spanningAngle);
     
     capsule_log = new G4LogicalVolume(capsule, plexiglass, "capsule_log",
 				      0, 0, 0);
