@@ -6,7 +6,7 @@ Lab_Bench::Lab_Bench(G4LogicalVolume* experimentalHall_log,
   materials=mat;
   expHall_log=experimentalHall_log;
 
-  density = 2.6;
+  density = 2.4;
 
   // Lab bench at Ursinus College, Pfahler Hall 013
   Length = 121.5*cm;
