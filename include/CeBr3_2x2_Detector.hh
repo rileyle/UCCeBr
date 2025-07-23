@@ -71,12 +71,9 @@ public:
   G4double reflectorSideThickness;
   G4double reflectorFrontThickness;
   G4double pmtLength;
-  G4double pmtFrontRadius;
-  G4double pmtBaseRadius;
-  G4double pmtFrontLength;
-  G4double pmtTransitionLength;
-  G4double pmtBaseLength;
+  G4double pmtRadius;
   G4double pmtThickness;
+  G4double pmtOffset;
   G4double shieldThickness;
   G4double shieldLength;
   G4double windowRadius;
@@ -94,6 +91,8 @@ public:
   G4ThreeVector DetPos;
   G4ThreeVector pmtShift;
   G4ThreeVector pmtPos;
+  G4ThreeVector shieldShift;
+  G4ThreeVector shieldPos;
   G4ThreeVector canPos;
   G4ThreeVector reflectorPos;
   G4ThreeVector reflectorShift;
@@ -105,7 +104,7 @@ public:
   G4Polycone* can;
   G4Polycone* reflector;
   G4Polycone* pmt;
-  G4Polycone* shield;
+  G4Tubs* shield;
   G4Tubs* window;
   G4Tubs* crystal;
   G4AssemblyVolume * assembly;

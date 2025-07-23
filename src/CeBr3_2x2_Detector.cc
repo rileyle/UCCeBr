@@ -19,12 +19,12 @@ CeBr3_2x2_Detector::CeBr3_2x2_Detector(G4LogicalVolume* experimentalHall_log,
   startAngle      = 45.*deg;
   spanningAngle   = 360.*deg;
 
-  canLength    = 53*mm;
-  canThickness = 1.0*mm;
-  canRadius    = 58.8/2*mm;
+  canLength    = 40.0*mm;
+  canThickness = 0.5*mm;
+  canRadius    = 54.0/2*mm;
 
-  reflectorSideThickness  = 0.5*mm;
-  reflectorFrontThickness = 0.25*mm;
+  reflectorSideThickness  = 1.0*mm;
+  reflectorFrontThickness = 1.0*mm;
   
   // This is the position of the center of the front face of the can.
   DetPos.setX(0);
@@ -33,44 +33,47 @@ CeBr3_2x2_Detector::CeBr3_2x2_Detector(G4LogicalVolume* experimentalHall_log,
 
   crystalShift.setX(0);
   crystalShift.setY(0);
-  crystalShift.setZ(crystalLength/2 + 2*canThickness);
+  crystalShift.setZ(crystalLength/2 + canThickness + reflectorFrontThickness);
   crystalPos = DetPos + crystalShift;
 
   reflectorShift.setX(0);
   reflectorShift.setY(0);
-  reflectorShift.setZ(2*canThickness - reflectorFrontThickness);
+  reflectorShift.setZ(canThickness);
   reflectorPos = DetPos + reflectorShift;
 
-  pmtLength        = 261*mm - 104*mm;
+  canPos = DetPos;
+  
   shieldThickness  = 0.64*mm;
-  shieldLength     = pmtLength - 35*mm; // Measured by hand
+  shieldLength     = 120*mm;           // Measured by hand on drawing
 
-  pmtThickness   = 1*mm;
-  pmtFrontRadius = 58.8/2*mm - shieldThickness*mm;
-  pmtFrontLength = 45.8*mm;
-
-  pmtBaseRadius  = 58.8/2*mm;
-  pmtBaseLength  = 101*mm;
-
-  pmtTransitionLength = pmtLength - pmtFrontLength - pmtBaseLength;
+  pmtOffset    = 40.0*mm;              // PMT housing, actually
+  pmtLength    = 197.0*mm - pmtOffset; // PMT housing, actually
+  pmtThickness = 1.0*mm;
+  pmtRadius    = 58.8/2*mm;
 
   windowRadius   = crystalRadius;
-  windowLength   = 12.5*mm;
+  windowLength   = 12.5*mm;            // Not verified
 
   windowShift.setX(0);
   windowShift.setY(0);
   windowShift.setZ(1); 
-  windowShift.setMag(canLength + windowLength/2);
+  windowShift.setMag(crystalLength + windowLength/2
+		     + canThickness + reflectorFrontThickness);
   windowPos = DetPos + windowShift;
 
   // The G4Polycone position is the center of the z=0 plane, not
   // the center of the solid.
-  // pmtShift.setMag(Length/2.0 + pmtLength/2.0);
   pmtShift.setX(0);
   pmtShift.setY(0);
   pmtShift.setZ(1); 
-  pmtShift.setMag(canLength); 
+  pmtShift.setMag(pmtOffset); 
   pmtPos = DetPos + pmtShift;
+
+  shieldShift.setX(0);
+  shieldShift.setY(0);
+  shieldShift.setZ(1); 
+  shieldShift.setMag(shieldLength/2.0 + pmtOffset); 
+  shieldPos = DetPos + shieldShift;
 
   thetad = 90.*deg;
   phid = 90.*deg;
@@ -91,7 +94,7 @@ CeBr3_2x2_Detector::~CeBr3_2x2_Detector()
 void CeBr3_2x2_Detector::Construct()
 {
 
-  // Material surrounding the crystal
+  // Can
 
   const G4double czPlane[4] =
     {0,
@@ -113,6 +116,8 @@ void CeBr3_2x2_Detector::Construct()
 
   can_log = new G4LogicalVolume(can, Al, "can_log", 0, 0, 0);
 
+  // Reflector
+  
   const G4double rzPlane[4] =
     {0,
      reflectorFrontThickness,
@@ -134,52 +139,33 @@ void CeBr3_2x2_Detector::Construct()
   reflector_log = new G4LogicalVolume(reflector, TeflonTape, "reflector_log",
 				      0, 0, 0);
 
-  const G4double pzPlane[6] =
+  // PMT (housing)
+  
+  const G4double pzPlane[4] =
     {0,
-     pmtFrontLength,
-     pmtFrontLength+pmtTransitionLength,
      pmtLength - pmtThickness,
      pmtLength - pmtThickness,
      pmtLength};
-  const G4double prInner[6] = 
-    {pmtFrontRadius - pmtThickness,
-     pmtFrontRadius - pmtThickness,
-     pmtBaseRadius - pmtThickness,
-     pmtBaseRadius - pmtThickness,
+  const G4double prInner[4] = 
+    {pmtRadius - pmtThickness,
+     pmtRadius - pmtThickness,
      0,
      0};
-  const G4double prOuter[6] =
-    {pmtFrontRadius,
-     pmtFrontRadius,
-     pmtBaseRadius,
-     pmtBaseRadius,
-     pmtBaseRadius,
-     pmtBaseRadius};
-  pmt = new G4Polycone("PMT", startAngle, spanningAngle, 6,
+  const G4double prOuter[4] =
+    {pmtRadius,
+     pmtRadius,
+     pmtRadius,
+     pmtRadius};
+  pmt = new G4Polycone("PMT", startAngle, spanningAngle, 4,
 		       pzPlane, prInner, prOuter);
 
   pmt_log = new G4LogicalVolume(pmt, MuMetal, "pmt_log", 0, 0, 0);
 
   // magnetic shield
-  
-  const G4double szPlane[4] =
-    {0,
-     pmtFrontLength,
-     pmtFrontLength+pmtTransitionLength,
-     shieldLength};
-  const G4double srInner[4] = 
-    {pmtFrontRadius,
-     pmtFrontRadius,
-     pmtBaseRadius,
-     pmtBaseRadius};
-  const G4double srOuter[4] =
-    {pmtFrontRadius + shieldThickness,
-     pmtFrontRadius + shieldThickness,
-     pmtBaseRadius + shieldThickness,
-     pmtBaseRadius + shieldThickness};
-  shield = new G4Polycone("shield", startAngle, spanningAngle, 4,
-			  szPlane, srInner, srOuter);
 
+  shield = new G4Tubs("shield", canRadius, canRadius + shieldThickness,
+		      shieldLength/2., startAngle, spanningAngle);
+  
   shield_log = new G4LogicalVolume(shield, MuMetal, "pmt_log", 0, 0, 0);
 
   // window
@@ -190,7 +176,7 @@ void CeBr3_2x2_Detector::Construct()
   window_log = new G4LogicalVolume(window, quartz, "window_log",
 				   0, 0, 0);
   
-  // detector
+  // crystal
 
   crystal = new G4Tubs("crystal", 0, crystalRadius, crystalLength/2,
 		       startAngle, spanningAngle);
@@ -206,7 +192,7 @@ void CeBr3_2x2_Detector::Construct()
 
   assembly->AddPlacedVolume(pmt_log, pmtPos, &DetRot);
 
-  assembly->AddPlacedVolume(shield_log, pmtPos, &DetRot);
+  assembly->AddPlacedVolume(shield_log, shieldPos, &DetRot);
 
   assembly->AddPlacedVolume(window_log, windowPos, &DetRot);
 
